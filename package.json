@@ -1,0 +1,22 @@
+{
+  "name": "nodecontactform",
+  "version": "1.0.0",
+  "description": "Sample app using nodemailer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Sheaf",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dvla-internal-frontend-toolkit": "^2.1.15",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "member.js": "^1.0.0",
+    "nodemailer": "^4.4.2",
+    "npm": "^5.6.0",
+    "nunjucks": "^3.0.1",
+    "tick-of-truth": "^1.0.12"
+  }
+}
