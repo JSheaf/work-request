@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-8">
+        <div class="data-highlight">
+            <div class="header">
+                Work request submitted
+            </div>
+            <div class="content">
+                Your reference is:<br>
+                <span id="demo"></span>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-8">
+        <p class="lede">{{msg}}</p>
+
+        <h4>What happens next</h4>
+
+        <p>We have sent your application to Dave Hannify.</p>
+        <p>He will contact you as soon as he has reviewed your request to either confirm your registration, or to ask for more information.</p>
+
+        <p class="margin-top-6"><a href="#">What did you think of this service?</a> (takes 30 seconds)</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary">Finish</button>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    document.getElementById('demo').innerHTML =
+    Math.random().toString(36).substring(2, 7) + Math.random().toString(36).substring(2, 7);
+
+    $('button').click(next);
+
+    function next() {
+        go('/');
+    }
+</script>

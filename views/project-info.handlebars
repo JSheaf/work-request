@@ -1,595 +1,595 @@
+<div class="row">
+    <div class="col-8">
+        <div class="error-summary hide">
+            <div class="error-title">There was a problem</div>
+            <div class="error-description">Please amend the following details:</div>
+
+            <ul class="error-list">
+                <li class="project-name hide"><a href="#project-name">Provide the project name</a></li>
+                <li class="project-phase hide"><a href="#project-phase">Provide the phase of your project</a></li>
+
+                <li class="next-milestone hide"><a href="#next-milestone">Provide the next milestone</a></li>
+                <li class="next-milestone-2 hide"><a href="#next-milestone-2">Select a testing option</a></li>
+                <li class="testing-date-empty hide"><a href="#next-milestone-2">Testing date is empty</a></li>
+                <li class="testing-date-incomplete hide"><a href="#next-milestone-2">Testing date is incomplete</a></li>
+                <li class="test-day hide"><a href="#test-day">Enter a valid day</a></li>
+                <li class="test-month hide"><a href="#test-month">Enter a valid month</a></li>
+                <li class="test-year hide"><a href="#test-year">Enter a valid year</a></li>
+
+                <li class="resource-duration hide"><a href="#resource-duration">Provide a resource duration</a></li>
+
+                <li class="meeting-planned hide"><a href="#meeting-planned">Select a meeting option</a></li>
+                <li class="meeting-date-empty hide"><a href="#meeting-planned-2">Meeting date is empty</a></li>
+                <li class="meeting-date-incomplete hide"><a href="#meeting-planned-2">Meeting date is incomplete</a></li>
+                <li class="meet-day hide"><a href="#meet-day">Enter a valid day</a></li>
+                <li class="meet-month hide"><a href="#meet-month">Enter a valid month</a></li>
+                <li class="meet-year hide"><a href="#meet-year">Enter a valid year</a></li>
+
+                <li class="meeting-location hide"><a href="#meeting-location">Provide a meeting location</a></li>
+
+                <li class="requirements hide"><a href="#requirements">Provide what you require from us</a></li>
+            </ul>
+        </div>
+
+        <h1 class="section-label">Interaction design work request</h1>
+        <h1 class="border-bottom-grey">Project information</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-8">
+        <div class="form-group">
+            <label for="project-name">
+                <div class="label-title">What is the name of the project?</div>
+                <div class="project-name label-error hide">Provide the project name</div>
+                <input type="text" id="project-name" class="form-control" />
+            </label>
+        </div>
 
 
 
-<html lang="en">
-    <head>
-        <title> Project information </title>
-        <meta name="viewport" content="width=device-width" />
-        <meta charset="utf-8">
-        
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
-<script type="text/javascript" src="/public/javascripts/tick-of-truth.js"></script>
-<!-- IMPORTANT THAT THIS LOADS LAST. ANY OTHER LIBRARY THAT INTERACTS WITH LOCALSTORAGE SHOULD BE LOADED FIRST -->
-<script type="text/javascript" src="/public/javascripts/member.js"></script> 
- 
-<link rel="stylesheet" href="/public/css/application.scss" />
- 
 
-    </head>
 
-    <body class="">
-        <script>
-            document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-        </script>
-
-        <header role="banner" id="global-header" class="">
-            <div id="header-wrapper">
-                <div id="header-contents">
-                    <div id="header-float-left">
-                        <div id="header-logo">
-                            <a href="/" title="Home" id="logo" class="content">
-                                <div id="coat-of-arms" alt=""></div>
-                                <div class="name">DVLA</div>
-                            </a>
-                            <div id="header-application-title">
-                                
-	<a href="/" title="Service home">Testing new things</a>
-
-                            </div>
-                        </div>
-                        <div id="header-search">
-                            
-                        </div>
-                    </div>
-                    <div id="header-float-right">
-                        <div id="user-account">
-                            
-                        </div>
-                    </div>
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    What phase is the project in?
+                </legend>
+                <div class="label-error project-phase hide">Provide the phase of your project</div>
+                <div class="multiple-choice">
+                    <input id="discovery" type="radio" name="project-phase" value="Discovery">
+                    <label for="discovery">Discovery</label>
                 </div>
-            </div>
-            
-            <div id="global-header-bar"></div>
-            
-        </header>
-
-        
-
-        <main id="content">
-            <div class="container">
-                
-	<div class="row">
-		<div class="col-8">
-			<div class="error-summary hide">
-				<div class="error-title">Message to alert the user to a problem goes here</div>
-				<div class="error-description">Optional description of the errors and how to correct them</div>
-
-				<ul class="error-list">
-					<li class="project-name hide"><a href="#project-name">Provide the project name</a></li>
-					<li class="project-phase hide"><a href="#project-phase">Provide the phase of your project</a></li>
-					<li class="next-milestone hide"><a href="#next-milestone">Provide the next milestone</a></li>
-					<li class="next-milestone2 hide"><a href="#next-milestone2">Select an option</a></li>
-
-					<li class="resource-duration hide"><a href="#resource-duration">Provide resource duration</a></li>
-                    <li class="testDatePlanned hide"><a href="#testDatePlanned">Are there any test dates planned</a></li>
-                    
-					<li class="test-date-empty hide"><a href="#test-day">Enter a test date</a></li>
-					<li class="test-day hide"><a href="#test-day">Enter a valid day</a></li>
-                    <li class="test-month hide"><a href="#test-month">Enter a valid month</a></li>
-                    <li class="test-year hide"><a href="#test-year">Enter a valid year</a></li>
-                    
-					<li class="meet-date-empty hide"><a href="#meet-day">Enter a meeting date</a></li>
-					<li class="meet-day hide"><a href="#meet-day">Enter a valid day</a></li>
-                    <li class="meet-month hide"><a href="#meet-month">Enter a valid month</a></li>
-                    <li class="meet-year hide"><a href="#meet-year">Enter a valid year</a></li>
-                    
-					<li class="meet-location hide"><a href="#meet-location">Provide meeting location</a></li>
-					<li class="work-description hide"><a href="#work-description">Provide a description of what you require</a></li>
-				</ul>
-			</div>
-
-			<h1 class="section-label">Interaction design work request</h1>
-			<h1 class="border-bottom-grey">Project information</h1>
-		</div>
-	</div>
-
-
-
-	<div class="row">
-		<div class="col-12">
-			<div class="form-group">
-				<label for="project-name">
-					<div class="label-title">What is the name of the project?</div>
-					<div class="label-error project-name hide">Provide the project name</div>
-					<input type="text" id="project-name" name="project-name" class="form-control form-control-2-3" />
-				</label>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-12">
-			<form>
-				<div class="form-group">
-					<fieldset>
-						<legend>What phase is the project in?</legend>
-		
-						<div class="label-error project-phase hide">Provide the phase of your project</div>
-						
-						<div class="multiple-choice">
-							<input id="discovery" type="radio" name="project-phase" value="Discovery">
-							<label for="discovery">Discovery</label>
-						</div>
-						<div class="multiple-choice">
-							<input id="alpha" type="radio" name="project-phase" value="Alpha">
-							<label for="alpha">Alpha</label>
-						</div>
-						<div class="multiple-choice">
-							<input id="betaPrivate" type="radio" name="project-phase" value="Private Beta">
-							<label for="betaPrivate">Private Beta</label>
-						</div>
-						<div class="multiple-choice">
-							<input id="betaPublic" type="radio" name="project-phase" value="Public Beta">
-							<label for="betaPublic">Public Beta</label>
-						</div>
-						<div class="multiple-choice">
-							<input id="live" type="radio" name="project-phase" value="Live">
-							<label for="live">Live</label>
-						</div>
-					</fieldset>
-				</div>
-			</form>
-		</div>
-	</div>
+                <div class="multiple-choice">
+                    <input id="alpha" type="radio" name="project-phase" value="Alpha">
+                    <label for="alpha">Alpha</label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="private-beta" type="radio" name="project-phase" value="Private Beta">
+                    <label for="private-beta">Private Beta</label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="public-beta" type="radio" name="project-phase" value="Public Beta">
+                    <label for="public-beta">Public Beta</label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="live" type="radio" name="project-phase" value="Live">
+                    <label for="live">Live</label>
+                </div>
+            </fieldset>
+        </div>
 
 
 
 
 
-	<div class="row">
-		<div class="col-12">
-			<div class="form-group">
-				<fieldset>
-					<legend>
-                        What is the next milestone?
-                        <span class="legend-error next-milestone hide">Select an option</span>
-                    </legend>
-					
-					<div class="multiple-choice">
-						<input id="team" type="radio" name="next-milestone" value="Putting a team together">
-						<label for="team">Putting a team together</label>
-					</div>
-					<div class="multiple-choice">
-						<input id="assessment" type="radio" name="next-milestone" value="Service assessment">
-						<label for="assessment">Service assessment</label>
-					</div>
-					<div class="multiple-choice">
-						<input id="showcase" type="radio" name="next-milestone" value="Showcase">
-						<label for="showcase">Showcase</label>
-					</div>
-					<div class="multiple-choice">
-						<input id="insight" type="radio" name="next-milestone" value="User insight">
-						<label for="insight">User insight</label>
-					</div>
-				</fieldset>
-			</div>
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    What is the next milestone?
+                </legend>
+                <div class="label-error next-milestone hide">Provide the next milestone</div>
+                <div class="multiple-choice">
+                    <input id="putting-team-together" type="radio" name="next-milestone" value="Putting a team together">
+                    <label for="putting-team-together">Putting a team together</label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="service-assessment" type="radio" name="next-milestone" value="Service assessment">
+                    <label for="service-assessment">Service assessment</label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="showcase" type="radio" name="next-milestone" value="Showcase">
+                    <label for="showcase">Showcase</label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="user-insight" type="radio" name="next-milestone" value="User insight">
+                    <label for="user-insight">User insight</label>
+                </div>
+            </fieldset>
+        </div>
 
-			<div class="form-group hide" id="next-milestone2">
-                <fieldset class="inset">
+        <span id="next-milestone-2" class="inset">
+            <div class="form-group inline">
+                <fieldset>
                     <legend>
-                        Has insight been booked?
-                        <span class="legend-error next-milestone2 hide">Select an option</span>
+                        Has user testing been booked?
+                        <span class="legend-error next-milestone-2 hide">Select an option</span>
                     </legend>
-    
                     <div class="multiple-choice">
-                        <input id="insightBookedYes" type="radio" name="next-milestone2" value="Yes">
-                        <label for="insightBookedYes">Yes</label>
+                        <input id="booked-yes" type="radio" name="next-milestone-2" value="Yes">
+                        <label for="booked-yes">Yes</label>
                     </div>
                     <div class="multiple-choice">
-                        <input id="insightBookedNo" type="radio" name="next-milestone2" value="No">
-                        <label for="insightBookedNo">No</label>
+                        <input id="booked-no" type="radio" name="next-milestone-2" value="No">
+                        <label for="booked-no">No</label>
                     </div>
                 </fieldset>
-			</div>
-		</div>
-    </div>
-    
+            </div>
+            <form>
+                <div class="form-group" id="testing-date-empty">
+                    <fieldset>
+                        <label for="testing-date">
+                            <div class="label-title">What is the date of testing?</div>
+                            <div class="label-hint">For example 6 2 2018</div>
+                            <div class="label-error testing-date-empty hide">Provide a testing date</div>
+                            <div class="label-error testing-date-incomplete hide">Testing date is incomplete</div>
+                        </label>
+                        <div class="row">
+                            <div class="col-1 col-day">
+                                <input type="text" id="test-day" name="day" name="testing-date" class="form-control" />
+                            </div>
+                            <div class="col-1 col-month">
+                                <input type="text" id="test-month" name="month" name="testing-date" class="form-control" />
+                            </div>
+                            <div class="col-1 col-year">
+                                <input type="text" id="test-year" name="year" name="testing-date" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </span>
 
 
 
 
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="resource-duration">
-                    <div class="label-title">How long do you need Interaction design resource for?</div>
-                    <div class="label-hint">For example, 6 months</div>
-                    <div class="label-error resource-duration hide">Provide resource duration</div>
-                    <input type="text" id="resource-duration" name="resource-duration" class="form-control form-control-2-3" />
-                </label>
+
+        <div class="form-group">
+            <label for="resource-duration">
+                <div class="label-title">How long do you need Interaction design resource for?</div>
+                <div class="label-hint">For example, 6 months</div>
+                <div class="label-error resource-duration hide">Provide resource duration</div>
+                <input type="text" id="resource-duration" class="form-control form-control-1-2" />
+            </label>
+        </div>
+
+
+
+
+
+        <form>
+            <div class="form-group inline">
+                <fieldset>
+                    <legend>
+                        Do you have a meeting planned that you would like us to attend?
+                        <span class="legend-error meeting-planned hide">Select an option</span>
+                    </legend>
+
+                    <div class="multiple-choice">
+                        <input id="meeting-planned-yes" type="radio" name="meeting-planned" value="Yes">
+                        <label for="meeting-planned-yes">Yes</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="meeting-planned-no" type="radio" name="meeting-planned" value="No">
+                        <label for="meeting-planned-no">No</label>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+
+        <span id="meeting-planned-2" class="inset">
+            <form>
+                <div class="form-group">
+                    <fieldset>
+                        <label for="meeting-date">
+                            <div class="label-title">What is the date of the meeting?</div>
+                            <div class="label-hint">For example 6 2 2018</div>
+                            <div class="label-error meeting-date-empty hide">Enter a valid date</div>
+                            <div class="label-error meeting-date-incomplete hide">Date is incomplete</div>
+                        </label>
+                        <div class="row">
+                            <div class="col-1 col-day">
+                                <input type="text" id="meet-day" name="day" name="meeting-date" class="form-control" />
+                            </div>
+                            <div class="col-1 col-month">
+                                <input type="text" id="meet-month" name="month" name="meeting-date" class="form-control" />
+                            </div>
+                            <div class="col-1 col-year">
+                                <input type="text" id="meet-year" name="year" name="meeting-date" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label for="meeting-location">
+                        <div class="label-title">What is the meeting location</div>
+                        <div class="label-hint">For example, D14, room 1</div>
+                        <div class="label-error meeting-location hide">Provide a meeting location</div>
+                    </label>
+                    <input type="text" id="meeting-location" class="form-control form-control-1-2" />
+                </div>
+            </form>
+        </span>
+
+
+
+
+
+        <div class="form-group">
+            <label for="requirements">
+                <div class="label-title">Requirements</div>
+                <div class="label-hint">Describe what you require from us</div>
+                <div class="label-error requirements hide">Provide what you require from us</div>
+            </label>
+            <textarea class="form-control" name="requirements" id="requirements" onkeyup="countChar(this)" rows="5" maxlength="200" autocomplete="off"></textarea>
+
+            <span class="requirementslength error-message">Your description is <span id="requirementslength"></span> characters too long</span>
+            <span id="charcountdown" class="margin-top-0-5" style="display:block">(<span id="countdown">100</span> characters remaining)</span>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn-lrg btn-primary">Next</button>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
 
-	<div class="row">
-		<div class="col-12">
-			<div class="form-group" id="meetingDate">
-				<label for="date-empty">
-					<div class="label-title">What is the date of the next meeting you’d like us to attend?</div>
-					<!-- <div class="label-hint">For example 6 2 2018</div> -->
-					<div class="label-error meet-date-empty hide">Enter a valid date</div>
-				</label>
-				<div class="row">
-					<div class="col-1 col-day">
-						<input type="text" id="meet-day" name="meet-day" class="form-control" />
-					</div>
-					<div class="col-1 col-month">
-						<input type="text" id="meet-month" name="meet-month" class="form-control" />
-					</div>
-					<div class="col-1 col-year">
-						<input type="text" id="meet-year" name="meet-year" class="form-control" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<script>
+    if (member.questions === undefined) {
+        member.questions = {};
+    }
 
+    $('h1').click(function() {
+        $('#project-name').val('Vehicle enquiry service');
+        $('input[name=project-phase][value="Alpha"]').prop('checked', true);
 
+        $('input[name=next-milestone][value=Showcase]').prop('checked', true);
+        $('input[name=next-milestone-2][value=No]').prop('checked', true);
+        {{!-- $('#test-day').val('8');
+        $('#test-month').val('2');
+        $('#test-year').val('2018'); --}}
 
+        $('#resource-duration').val('1 week');
 
+        $('input[name=meeting-planned][value=No]').prop('checked', true);
+        {{!-- $('#meet-day').val('8');
+        $('#meet-month').val('2');
+        $('#meet-year').val('2018');
+        $('#meeting-location').val('D15, Room 1'); --}}
 
-	<div class="row">
-		<div class="col-12">
-			<div class="form-group inline">
-				<fieldset>
-					<legend>
-						Do you have any testing dates planned?
-						<span class="legend-error hide">Select an option</span>
-					</legend>
-					<div class="label-error test-date-planned hide">Are there any testing dates planned</div>
-					<div class="multiple-choice">
-						<input id="testDates-Yes" type="radio" name="test-date-planned" value="Yes">
-						<label for="testDates-Yes">Yes</label>
-					</div>
-					<div class="multiple-choice">
-						<input id="testDates-no" type="radio" name="test-date-planned" value="No">
-						<label for="testDates-no">No</label>
-					</div>
-				</fieldset>
-			</div>
+        $('textarea[id=requirements]').val('Mission patch for alpha');
+    });
 
-			<div class="form-group hide" id="test-date">
-				<label for="test-date-empty">
-					<div class="label-title">Provide testing date</div>
-					<div class="label-hint">For example 6 2 2018</div>
-					<div class="label-error test-date-empty hide">Enter a valid date</div>
-				</label>
-				<div class="row">
-					<div class="col-1 col-day">
-						<input type="text" id="test-day" name="test-day" class="form-control" />
-					</div>
-					<div class="col-1 col-month">
-						<input type="text" id="test-month" name="test-month" class="form-control" />
-					</div>
-					<div class="col-1 col-year">
-						<input type="text" id="test-year" name="test-year" class="form-control" />
-					</div>
-				</div>
-			</div>
-		</div>
-    </div>
+    // Showing/hiding progressive disclosure fields
+    $('#next-milestone-2').hide();
+    $('input[name=next-milestone]').change(function () {
+        if ($(this).val() === 'User insight') {
+            $('#next-milestone-2').show();
+        } else {
+            $('#next-milestone-2').hide();
+        }
+    });
+    $('#meeting-planned-2').hide();
+    $('input[name=meeting-planned]').change(function () {
+        if ($(this).val() === 'Yes') {
+            $('#meeting-planned-2').show();
+        } else {
+            $('#meeting-planned-2').hide();
+        }
+    });
 
+    // Count the characters and handle errors on the text area
+    function countChar() {
+        var req = $('#requirements').val().length;
+        $('#requirementslength').html(req - 100);
+        $('#countdown').html(100 - req);
+        if (req > 100) {
+            $('.requirementslength.error-message').show();
+            $('#charcountdown').hide();
+        }
+        if (req < 101) {
+            $('.requirementslength.error-message').hide();
+            $('#charcountdown').show();
+        }
+    }
 
+    $('button').click(checkAnswers);
 
+    function checkAnswers() {
+        var validInput = true;
+        validate.prototype.resetErrors();
 
+        var projectName = $('#project-name').val();
+        var projectPhase = $('input[name=project-phase]:checked').val();
+        var nextMilestone = $('input[name=next-milestone]:checked').val();
+        var nextMilestone2 = $('input[name=next-milestone-2]:checked').val();
+        var testDay = $('#test-day').val();
+        var testMonth = $('#test-month').val();
+        var testYear = $('#test-year').val();
+        var resourceDuration = $('#resource-duration').val();
+        var meetingPlanned = $('input[name=meeting-planned]:checked').val();
+        var meetDay = $('#meet-day').val();
+        var meetMonth = $('#meet-month').val();
+        var meetYear = $('#meet-year').val();
+        var meetingLocation = $('#meeting-location').val();
+        var requirements = $('#requirements').val();
 
-	<div class="row">
-		<div class="col-12">
-			<div class="form-group">
-				<label for="meet-location">
-					<div class="label-title">Meeting location</div>
-					<div class="label-hint">For example, D14, room 1</div>
-					<div class="label-error meet-location hide">Provide meeting location</div>
-					<input type="text" id="meet-location" name="meet-location" class="form-control form-control-2-3" />
-				</label>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-	<div class="row">
-		<div class="col-12">
-			<div class="form-group">
-				<label for="work-description">
-					<div class="label-title">Brief</div>
-				</label>
-				<p>In a few words describe what you require from us.</p>
-				<div class="label-error work-description hide">Provide a description of what you require from us</div>
-				<div>
-					<textarea class="form-control" onkeyup="countChar(this)" name="work-description" id="work-description" rows="5" maxlength="200" autocomplete="off"></textarea>
-					<!-- <description onkeyup="countChar(this)" class="form-control" name="work-description" id="work-description" rows="5" maxlength="200" autocomplete="off"></description> -->
-					<span class="error-message descriptionlength">Your description is <span id="work-descriptionlength"></span> characters too long</span>
-					<span id="charcountdown" class="margin-top-0-5" style="display:block">(<span id="countdown">100</span> characters remaining)</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-    
-	<div class="row">
-		<div class="col-12">
-			<button class="btn btn-primary">Next</button>
-		</div>
-	</div>
-
-            </div>
-        </main>
-
-        
-    <script type="text/javascript">
-        $('h1').click(function() {
-            $('#project-name').val('Interaction design project');
-            $('input[name=project-phase][value="Private Beta"]').prop('checked', true);
-            $('input[name=next-milestone][value=Showcase]').prop('checked', true);
-            $('input[name=next-milestone2][value=Yes]').prop('checked', true);
-            $('#resource-duration').val('6 months');
-            $('input[name=test-date-planned][value=No]').prop('checked', true);
-            $('#test-day').val('8');
-            $('#test-month').val('2');
-            $('#test-year').val('2018');
-            $('#meet-day').val('8');
-            $('#meet-month').val('2');
-            $('#meet-year').val('2018');
-            $('#meet-location').val('D15, Room 1');
-            $('textarea[id=work-description]').val('Describe this... *grabs crotch*');
-		});
-
-        // Showing/hiding progressive disclosure fields
-        $('input[name=next-milestone]').change(function () {
-            if ($(this).val() === 'User insight') {
-                $('#next-milestone2').show();
-            } else {
-                $('#next-milestone2').hide();
-            }
-        });
-        $('input[name=test-date-planned]').change(function () {
-            if ($(this).val() === 'Yes') {
-                $('#test-date').show();
-            } else {
-                $('#test-date').hide();
-            }
-        });
-
-        // Count the characters and handle errors on the text area
-        function countChar() {
-            var workDescription = $('#work-description').val().length;
-            $('#work-descriptionlength').html(description - 100);
-            $('#countdown').html(100 - description);
-            if (description > 100) {
-                $('.error-message.work-descriptionlength').show();
-                $('#charcountdown').hide();
-            }
-            if (description < 101) {
-                $('.error-message.work-descriptionlength').hide();
-                $('#charcountdown').show();
-            }
+        // First check empty fields
+        if (validate('#project-name').isNotEmpty().error('.project-name').fail()) {
+            validInput = false;
+        }
+        if (validate('input[name=project-phase]').isChecked().error('.project-phase').fail()) {
+            validInput = false;
         }
 
-        $('button').click(checkAnswers);
-
-        if (member.questions === undefined) {
-            member.questions = {};
-        }
-
-        function checkAnswers() {
-            var validInput = true;
-			validate.prototype.resetErrors();
-
-            var projectName = $('input[name="project-name"]').val();
-            var projectPhase = $('input[name=project-phase]:checked').val();
-            var nextMilestone = $('input[name=next-milestone]:checked').val();
-            var nextMilestone2 = $('input[name=next-milestone2]:checked').val();
-            var resourceDuration = $('#resource-duration').val();
-            var testDatePlanned = $('input[name=test-date-planned]:checked').val();
-            var testDay = $('#test-day').val();
-            var testMonth = $('#test-month').val();
-            var testYear = $('#test-year').val();
-            var meetDay = $('#meet-day').val();
-            var meetMonth = $('#meet-month').val();
-            var meetYear = $('#meet-year').val();
-            var meetLocation = $('#meet-location').val();
-            var workDescription = $('#work-description').val();
-
-            if (validate('#project-name').isNotEmpty().error('.project-name').fail()) {
-				validInput = false;
-			}
-			if (validate('input[name=project-phase]').isChecked().error('.project-phase').fail()) {
-				validInput = false;
-			}
-            if (validate('input[name=next-milestone]').isChecked().error('.next-milestone').fail()) {
-				validInput = false;
-			} else {
-                var nextMilestone = $('input[name=next-milestone]:checked').val();
-
-                if (('#next-milestone') !== 'User insight') {
-                    validInput = true;
-                } else if (nextMilestone === 'User insight') {
-                    if (validate('input[name=next-milestone2]').isChecked().error('.next-milestone2').fail()) {
-				        validInput = false;
-                        $('#next-milestone2').find('fieldset').removeClass('inset');
-			        } else {
-                        $('#next-milestone2').find('fieldset').addClass('inset');
-                        validInput = true;
-                    }
+        if (validate('input[name=next-milestone]').isChecked().error('.next-milestone').fail()) {
+            validInput = false;
+        } else {
+            if ((nextMilestone !== 'User insight') && (nextMilestone)) {
+                validInput = true;
+            } else if (nextMilestone === 'User insight') {
+                if (validate('input[name=next-milestone-2]').isChecked().error('.next-milestone-2').fail()) {
+                    validInput = false;
                 }
-            }
-			if (validate('#resource-duration').isNotEmpty().error('.resource-duration').fail()) {
-				validInput = false;
-			}
-			if (validate('input[name=test-date-planned]').isChecked().error('.test-date-planned').fail()) {
-				validInput = false;
-			} else {
-				checkTestDate();
-			}
-			function checkTestDate() {
-				if (testDatePlanned === 'Yes') {
-                    if (validate('#test-day').isNotEmpty().validate('#test-month').isNotEmpty().validate('#test-year').isNotEmpty().error('.test-date-empty').fail()) {
+                if (validate('#test-day').isNotEmpty().validate('#test-month').isNotEmpty().validate('#test-year').isNotEmpty().error('.testing-date-empty').fail()) {
+                    validInput = false;
+                } else {
+                    checkDate();
+                }
+                function checkDate() {
+                    if (validate('#test-day').isNotEmpty().error('.test-day').fail()) {
                         validInput = false;
                     } else {
-                        checkFields();
+                        $('#test-day').addClass('no-error');
                     }
-
-                    // Check to see if fields are complete
-                    function checkFields() {
-                        if (validate('#test-day').isRegEx(/^[0-3]{0,1}[0-9]{1}$/).error('.test-day').pass()) {
-                            $('input[id="test-day"]').addClass('no-error');
-                        } else {
-                            validInput = false;
-                        }
-                        if (validate('#test-month').isRegEx(/^(0[1-9]|1[0-2])$/).error('.test-month').pass()) {
-                            $('input[id="test-month"]').addClass('no-error');
-                        } else {
-                            validInput = false;
-                        }
-                        if (validate('#test-year').isGreaterThanOrEqual(1900).isLessThanOrEqual(2018).error('.test-year').pass()) {
-                            $('input[id="test-year"]').addClass('no-error');
-                        } else {
-                            validInput = false;
-                        }
-                        if (validInput = false) {
-                            validate.prototype.resetErrors();
-                        } else {
-                            validInput = true;
-                            $('.test-date-empty').hide();
-                        }
+                    if (validate('#test-month').isNotEmpty().error('.test-month').fail()) {
+                        validInput = false;
+                    } else {
+                        $('#test-month').addClass('no-error');
                     }
-				} else if (testDatePlanned === 'N') {
-                    validInput = true;
-				}
-			}
-            if (validate('#meet-day').isNotEmpty().validate('#meet-month').isNotEmpty().validate('#meet-year').isNotEmpty().error('.meet-date-empty').fail()) {
-                validInput = false;
-            } else {
-                checkFields();
-            }
-
-            function checkFields() {
-                // Check to see if fields are complete
-                if (validate('#meet-day').isRegEx(/^[0-3]{0,1}[0-9]{1}$/).error('.meet-day').pass()) {
-                    $('input[id="meet-day"]').addClass('no-error');
-                } else {
-                    validInput = false;
-                }
-                if (validate('#meet-month').isGreaterThanOrEqual(1).isLessThanOrEqual(12).error('.meet-month').pass()) {
-                    $('input[id="meet-month"]').addClass('no-error');
-                } else {
-                    validInput = false;
-                }
-                if (validate('#meet-year').isGreaterThanOrEqual(1900).isLessThanOrEqual(2018).error('.meet-year').pass()) {
-                    $('input[id="meet-year"]').addClass('no-error');
-                } else {
-                    validInput = false;
-                }
-                if (validInput = false) {
-                    validate.prototype.resetErrors();
-                } else {
-                    validInput = true;
-                    $('.meet-date-empty').hide();
+                    if (validate('#test-year').isNotEmpty().error('.test-year').fail()) {
+                        validInput = false;
+                    } else {
+                        $('#test-year').addClass('no-error');
+                    }
+                    if (validInput == false) {
+                        {{!-- validate.prototype.resetErrors(); --}}
+                        $('.testing-date-incomplete').show();
+                        $('.testing-date-empty').hide();
+                        $('body').scrollTop(0);
+                        $('.error-summary').focus();
+                    } else {
+                        $('.testing-date-empty').hide();
+                    }
                 }
             }
+        }
 
-            if (validate('#meet-location').isNotEmpty().error('.meet-location').fail()) {
-				validInput = false;
-			}
-			if (validate('#work-description').isNotEmpty().error('.work-description').fail()) {
-				validInput = false;
-			}
+        if (validate('#resource-duration').isNotEmpty().error('.resource-duration').fail()) {
+            validInput = false;
+        }
+        if (validate('input[name=meeting-planned]').isChecked().error('.meeting-planned').fail()) {
+            validInput = false;
+        } else {
+            if (meetingPlanned === 'No') {
+                validInput = true;
+            } else if (meetingPlanned === 'Yes') {
+                if (validate('#meeting-location').isNotEmpty().error('.meeting-location').fail()) {
+                    validInput = false;
+                }
+                if (validate('#meet-day').isNotEmpty().validate('#meet-month').isNotEmpty().validate('#meet-year').isNotEmpty().error('.meeting-date-empty').fail()) {
+                    validInput = false;
+                } else {
+                    checkDate();
+                }
+                function checkDate() {
+                    if (validate('#meet-day').isNotEmpty().error('.meet-day').fail()) {
+                        validInput = false;
+                    } else {
+                        $('#meet-day').addClass('no-error');
+                    }
+                    if (validate('#meet-month').isNotEmpty().error('.meet-month').fail()) {
+                        validInput = false;
+                    } else {
+                        $('#meet-month').addClass('no-error');
+                    }
+                    if (validate('#meet-year').isNotEmpty().error('.meet-year').fail()) {
+                        validInput = false;
+                    } else {
+                        $('#meet-year').addClass('no-error');
+                    }
+                    if (validInput == false) {
+                        {{!-- validate.prototype.resetErrors(); --}}
+                        $('.meeting-date-incomplete').show();
+                        $('.meeting-date-empty').hide();
+                        $('body').scrollTop(0);
+                        $('.error-summary').focus();
+                    } else {
+                        $('.meeting-date-empty').hide();
+                    }
+                }
+            }
+        }
 
-            if (validInput) {
-                member.questions.projectName = projectName;
-                member.questions.projectPhase = projectPhase;
-                member.questions.nextMilestone = nextMilestone;
-                try {
-                    member.questions.nextMilestone2 = nextMilestone2;
-                } catch (err) {}
-                member.questions.resourceDuration = resourceDuration;
-                member.questions.testDatePlanned = testDatePlanned;
-                try {
-                    member.questions.testDay = testDay;
-                    member.questions.testMonth = testMonth;
-                    member.questions.testYear = testYear;
-                } catch (err) {}
+        if (validate('#requirements').isNotEmpty().error('.requirements').fail()) {
+            validInput = false;
+        }
+
+        if (validInput) {
+            member.questions.projectName = projectName;
+            member.questions.projectPhase = projectPhase;
+            member.questions.nextMilestone = nextMilestone;
+            try {
+                member.questions.nextMilestone2 = nextMilestone2;
+                member.questions.testDay = testDay;
+                member.questions.testMonth = testMonth;
+                member.questions.testYear = testYear;
+            } catch (err) {}
+            member.questions.meetingPlanned = meetingPlanned;
+            try {
                 member.questions.meetDay = meetDay;
                 member.questions.meetMonth = meetMonth;
                 member.questions.meetYear = meetYear;
-                member.questions.meetLocation = meetLocation;
-                member.questions.workDescription = workDescription;
+                member.questions.meetingLocation = meetingLocation;
+            } catch (err) {}
+            member.questions.resourceDuration = resourceDuration;
+            member.questions.requirements = requirements;
 
-				if (changing == "true") {
-                	go('/josh/check-your-answers');
-				} else {
-					go('/josh/your-details');
-				}
+            if (changing == "true") {
+                go('check-your-answers');
             } else {
-                $('body').scrollTop(0);
-                $('.error-summary').focus();
+                go('your-details');
             }
+        } else {
+            $('body').scrollTop(0);
+            $('.error-summary').focus();
         }
+    }
 
-        // Populating fields when changing
-        var changing = location.search.split('change=')[1];
+    // Populating fields when changing
+    var changing = location.search.split('change=')[1];
 
-        if (changing === 'true') {
-            $('.button-back').hide();
+    if (changing === 'true') {
+        $('.button-back').hide();
 
-            $('#project-name').val(member.questions.projectName);
-            $('input[name=project-phase][value="' + member.questions.projectPhase + '"]').prop('checked', true);
-            if (member.questions.nextMilestone == 'User insight') {
-                $('#next-milestone2').show();
+        $('#project-name').val(member.questions.projectName);
+        $('input[name=project-phase][value="' + member.questions.projectPhase + '"]').prop('checked', true);
+
+        if (member.questions.nextMilestone == 'User insight') {
+            if (member.questions.nextMilestone2 == 'Yes') {
+                $('#next-milestone-2').show();
                 $('input[name=next-milestone][value="' + member.questions.nextMilestone + '"]').prop('checked', true);
-                $('input[name=next-milestone2][value="' + member.questions.nextMilestone2 + '"]').prop("checked", true);
-            } else {
-                $('input[name=next-milestone][value="' + member.questions.nextMilestone + '"]').prop('checked', true);
-            }
-            $('#resource-duration').val(member.questions.resourceDuration);
-            $('input[name=test-date-planned][value="' + member.questions.testDatePlanned + '"]').prop('checked', true);
-
-            $('#meet-day').val(member.questions.meetDay);
-            $('#meet-month').val(member.questions.meetMonth);
-            $('#meet-year').val(member.questions.meetYear);
-            $('#meet-location').val(member.questions.meetLocation);
-            $('#work-description').val(member.questions.workDescription);
-
-            if (member.questions.testDatePlanned == 'Yes') {
-                $('#test-date').show();
-                $('input[name=test-date-planned][value="' + member.questions.testDatePlanned + '"]').prop('checked', true);
+                $('input[name=next-milestone-2][value="' + member.questions.nextMilestone2 + '"]').prop("checked", true);
                 $('#test-day').val(member.questions.testDay);
                 $('#test-month').val(member.questions.testMonth);
                 $('#test-year').val(member.questions.testYear);
             } else {
-                $('input[name=test-date-planned][value="' + member.questions.testDate + '"]').prop('checked', true);
+                $('input[name=next-milestone-2][value="' + member.questions.nextMilestone2 + '"]').prop("checked", true);
+            }
+        } else {
+            $('input[name=next-milestone][value="' + member.questions.nextMilestone + '"]').prop('checked', true);
+        }
+
+        $('#resource-duration').val(member.questions.resourceDuration);
+
+        if (member.questions.meetingPlanned == 'Yes') {
+            $('input[name=meeting-planned][value="' + member.questions.meetingPlanned + '"]').prop('checked', true);
+            $('#meet-day').val(member.questions.meetDay);
+            $('#meet-month').val(member.questions.meetMonth);
+            $('#meet-year').val(member.questions.meetYear);
+            $('#meet-location').val(member.questions.meetingLocation);
+        } else {
+            $('input[name=meeting-planned][value="' + member.questions.meetingPlanned + '"]').prop('checked', true);
+        }
+
+        $('#requirements').val(member.questions.requirements);
+    }
+</script>
+
+{{!-- <script type="text/javascript">
+
+
+
+
+
+
+
+        if (validate('input[name=test-date-planned]').isChecked().error('.test-date-planned').fail()) {
+            validInput = false;
+        } else {
+            checkTestDate();
+        }
+        function checkTestDate() {
+            if (testDatePlanned === 'Yes') {
+                if (validate('#test-day').isNotEmpty().validate('#test-month').isNotEmpty().validate('#test-year').isNotEmpty().error('.test-date-empty').fail()) {
+                    validInput = false;
+                } else {
+                    checkFields();
+                }
+
+                // Check to see if fields are complete
+                function checkFields() {
+                    if (validate('#test-day').isRegEx(/^[0-3]{0,1}[0-9]{1}$/).error('.test-day').pass()) {
+                        $('input[id="test-day"]').addClass('no-error');
+                    } else {
+                        validInput = false;
+                    }
+                    if (validate('#test-month').isRegEx(/^(0[1-9]|1[0-2])$/).error('.test-month').pass()) {
+                        $('input[id="test-month"]').addClass('no-error');
+                    } else {
+                        validInput = false;
+                    }
+                    if (validate('#test-year').isGreaterThanOrEqual(1900).isLessThanOrEqual(2018).error('.test-year').pass()) {
+                        $('input[id="test-year"]').addClass('no-error');
+                    } else {
+                        validInput = false;
+                    }
+                    if (validInput = false) {
+                        validate.prototype.resetErrors();
+                    } else {
+                        validInput = true;
+                        $('.test-date-empty').hide();
+                    }
+                }
+            } else if (testDatePlanned === 'N') {
+                validInput = true;
             }
         }
-    </script>
+        if (validate('#meet-day').isNotEmpty().validate('#meet-month').isNotEmpty().validate('#meet-year').isNotEmpty().error('.meet-date-empty').fail()) {
+            validInput = false;
+        } else {
+            checkFields();
+        }
+
+        function checkFields() {
+            // Check to see if fields are complete
+            if (validate('#meet-day').isRegEx(/^[0-3]{0,1}[0-9]{1}$/).error('.meet-day').pass()) {
+                $('input[id="meet-day"]').addClass('no-error');
+            } else {
+                validInput = false;
+            }
+            if (validate('#meet-month').isGreaterThanOrEqual(1).isLessThanOrEqual(12).error('.meet-month').pass()) {
+                $('input[id="meet-month"]').addClass('no-error');
+            } else {
+                validInput = false;
+            }
+            if (validate('#meet-year').isGreaterThanOrEqual(1900).isLessThanOrEqual(2018).error('.meet-year').pass()) {
+                $('input[id="meet-year"]').addClass('no-error');
+            } else {
+                validInput = false;
+            }
+            if (validInput = false) {
+                validate.prototype.resetErrors();
+            } else {
+                validInput = true;
+                $('.meet-date-empty').hide();
+            }
+        }
 
 
-        <footer id="global-footer" class="">
-            
-        </footer>
 
-        
-    </body>
 
-</html>
+
+    }
+</script> --}}

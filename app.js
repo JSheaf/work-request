@@ -5,37 +5,172 @@ const nodemailer = require('nodemailer');
 const path = require('path'); 
 const app = express();
 
-//View project setup
-app.engine('handlebars', exphbs ());
+// View project setup
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // Static folder
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-//Body Parser Middleware
+// Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get ('/', (req, res) => {
+    res.render('index', {layout: 'main'});
+});
+app.get ('/contact', (req, res) => {
     res.render('contact');
 });
-
+app.get ('/request-type', (req, res) => {
+    res.render('request-type');
+});
 app.get ('/project-info', (req, res) => {
     res.render('project-info');
 });
+app.get ('/your-details', (req, res) => {
+    res.render('your-details');
+});
+app.get ('/check-your-answers', (req, res) => {
+    res.render('check-your-answers');
+});
+app.get ('/success', (req, res) => {
+    res.render('success');
+});
 
-app.post ('/send', (req, res) => {
+app.post ('/success', (req, res) => {
     const output = `
-      <p>You have a new contact request</p>
-      <h3>Contact details</h3>
-      <ul>
-        <li>Name: ${req.body.name}</li>
-        <li>Contact: ${req.body.company}</li>
-        <li>Email: ${req.body.email}</li>
-        <li>Phone: ${req.body.phone }</li>
-      </ul>
-      <h3>Message</h3>
-      <p>${req.body.message}</p>
+        <style>
+            h1 {
+                font-weight: 500;
+                color: #097567;
+                margin-top: 1.25em;
+                margin-bottom: 0.25em;
+                font-size: 40px;
+                line-height: 48px;
+                letter-spacing: -0.3px;
+                margin-top: 1em;
+                margin-bottom: 0.2em;
+            }
+            .lede {
+                font-size: 24px;
+                line-height: 36px;
+                letter-spacing: 0.3px;
+                font-weight: normal;
+            }
+            .list-sml {
+                width: 100%;
+                color: #0B0C0C;
+                margin-top: 0;
+                margin-bottom: 40px;
+                padding-left: 0;
+            }
+            .list-title-row {
+                height: 36px;
+                border-bottom: 2px solid #BFC1C3;
+                box-sizing: border-box;
+                display: flex;
+            }
+            .list-title {
+                font-weight: bold;
+                font-size: 20px;
+                flex: 1 1 50%;
+            }
+            .list-row {
+                border-bottom: 1px solid #BFC1C3;
+                font-size: 16px;
+                padding: 6px;
+                padding-left: 12px;
+                display: flex;
+            }
+            .list-property {
+                min-height: 16px;
+                flex: 1 1 50%;
+            }
+            .list-data {
+                font-weight: bold;
+                min-height: 16px;
+                flex: 1 1 50%;
+            }
+        </style>
+
+        <h1>Interaction design work request</h1>
+
+        <p class="lede">Request by ${req.body.name} from ${req.body.projectname}</p>
+
+        <ul class="list-sml">
+            <li class="list-title-row">
+                <span class="list-title">Request details</span>
+                <span class="list-change"></span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Request type</span>
+                <span class="list-data">${req.body.requesttype}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Project name</span>
+                <span class="list-data">${req.body.projectname}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Project phase</span>
+                <span class="list-data">${req.body.projectphase}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Next milestone</span>
+                <span class="list-data">${req.body.nextmilestone}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">User testing</span>
+                <span class="list-data">${req.body.nextmilestone2}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Testing date</span>
+                <span class="list-data">${req.body.testingdate}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Resource duration</span>
+                <span class="list-data">${req.body.resourceduration}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Meeting planned</span>
+                <span class="list-data">${req.body.meetingplanned}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Meeting date</span>
+                <span class="list-data">${req.body.meetingdate}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Meeting location</span>
+                <span class="list-data">${req.body.meetinglocation}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Requirements</span>
+                <span class="list-data">${req.body.requirements}</span>
+            </li>
+        </ul>
+
+        <ul class="list-sml">
+            <li class="list-title-row">
+                <span class="list-title">Contact details</span>
+                <span class="list-change"></span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Name</span>
+                <span class="list-data">${req.body.name}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Role</span>
+                <span class="list-data">${req.body.role}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Email</span>
+                <span class="list-data">${req.body.email}</span>
+            </li>
+            <li class="list-row">
+                <span class="list-property">Phone</span>
+                <span class="list-data">${req.body.phone}</span>
+            </li>
+        </ul>
     `;
 
     // create reusable transporter object using the default SMTP transport
@@ -51,9 +186,9 @@ app.post ('/send', (req, res) => {
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Nodemailer contact" <stantondevicelab@gmail.com>', // sender address
-        to: 'jsheaf90@gmail.com', // list of receivers
-        subject: 'Node contect request', // Subject line
+        from: '"Interaction design work request" <stantondevicelab@gmail.com>', // sender address
+        to: 'wesmonde@hotmail.com', // list of receivers
+        subject: 'FAO David Hannify', // Subject line
         text: 'Hello world?', // plain text body
         html: output // html body
     };
@@ -70,7 +205,8 @@ app.post ('/send', (req, res) => {
         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
-        res.render('contact', {msg:'Email has been sent'});
+        res.render('success', {msg:'We have sent you a confirmation email.'});
+        // res.render('contact', {msg:'Email has been sent'});
     });
 
 })

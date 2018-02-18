@@ -1,0 +1,39 @@
+<html lang="en">
+	{{> head}}
+
+	<body class="">
+		<script>
+			document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+		</script>
+
+		<header role="banner" id="global-header" class="">
+			<div id="header-wrapper">
+				<div id="header-contents">
+					<div id="header-float-left">
+						<div id="header-logo">
+							<a href="/" title="Home" id="logo" class="content">
+								<div id="coat-of-arms" alt=""></div>
+								<div class="name">DVLA</div>
+							</a>
+							<div id="header-application-title"></div>
+						</div>
+						<div id="header-search"></div>
+					</div>
+					<div id="header-float-right">
+						<div id="user-account"></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="global-header-bar"></div>
+		</header>
+
+		<main id="content">
+			<div class="container">
+				{{{body}}}
+			</div>
+        </main>
+
+        <footer id="global-footer" class=""></footer>
+    </body>
+</html>

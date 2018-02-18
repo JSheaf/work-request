@@ -1,0 +1,185 @@
+<div class="row">
+    <div class="col-12">
+        <div class="error-summary hide margin-top-3">
+            <div class="error-title">There was a problem</div>
+            <div class="error-description">Please amend the following details:</div>
+            <ul class="error-list">
+                <li class="label-error request-type"><a href="#request-type">Select a request type</a></li>
+                <li class="label-error other-request-type hide"><a href="#other-request-type">Enter what you require from us</a></li>
+            </ul>
+        </div>
+
+        <h1 class="section-label">Interaction design work request</h1>
+        <h1 class="border-bottom-grey">What type of request do you have?</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <form>
+            <div class="form-group">
+                <fieldset>
+                    <legend>
+                        <span class="legend-hint">Select all that apply</span>
+                        <span class="legend-error hide">Select a request type</span>
+                    </legend>
+                    
+                    <div class="multiple-choice">
+                        <input id="digital-choice" name="request-type" type="checkbox" value="Digital services hosted on GOV.UK">
+                        <label for="digital-choice">Digital services hosted on GOV.UK</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="internal-service" name="request-type" type="checkbox" value="Internal DVLA service">
+                        <label for="internal-service">Internal DVLA service</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="improvement-choice" name="request-type" type="checkbox" value="Continuous improvement">
+                        <label for="improvement-choice">Continuous improvement</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="assessment-preparation" name="request-type" type="checkbox" value="Assessment Preparation">
+                        <label for="assessment-preparation">Assessment Preparation</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="accessibility-audit" name="request-type" type="checkbox" value="Help with accessibility auditing">
+                        <label for="accessibility-audit">Help with accessibility auditing</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="mission-patches" name="request-type" type="checkbox" value="Mission patches">
+                        <label for="mission-patches">Mission Patches</label>
+                    </div>
+                    <div class="multiple-choice">
+                        <input id="other" name="request-type" type="checkbox" value="Other">
+                        <label for="other">Other request</label>
+                    </div>
+                    <div id="other-request-text-container" class="multiple-choice inset">
+                        <div class="form-group">
+                            <label for="other-request-text">
+                                {{!-- <div class="label-title">Other request</div> --}}
+                                <div class="label-hint">Describe what you require from us</div>
+                                <div class="label-error other-request-text hide">Enter what you require from us</div>
+                            </label>
+                            <textarea class="form-control" name="other-request-text" id="other-request-text" onkeyup="countChar(this)" rows="5" maxlength="200" autocomplete="off"></textarea>
+
+                            <span class="textarealength error-message">Your description is <span id="textarealength"></span> characters too long</span><span id="charcountdown" class="margin-top-0-5" style="display:block">(<span id="countdown">100</span> characters remaining)</span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <p>Making a request takes around 5 minutes.</p>
+
+        <button class="btn-lrg btn-primary">Start now</button>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    if (member.questions === undefined) {
+        member.questions = {};
+    }
+
+    $('h1').click(function() {
+        $('input[id=mission-patches]').prop('checked', true);
+        {{!-- $('input[id=other]').prop('checked', true); --}}
+        {{!-- $('textarea[id=other-request-text]').val('These are the other things'); --}}
+    });
+
+    // Check if user has been sent back from summary page
+    var changing = location.search.split('change=')[1];
+
+    // count the characters and handle errors on the text area
+    function countChar() {
+        var req = $('#other-request-text').val().length;
+        $('#textarealength').html(req - 100);
+        $('#countdown').html(100 - req);
+        if (req > 100) {
+            $('.textarealength.error-message').show();
+            $('#charcountdown').hide();
+        }
+        if (req < 101) {
+            $('.textarealength.error-message').hide();
+            $('#charcountdown').show();
+        }
+    }
+    
+    // Showing/hiding progressive disclosure fields
+    $('#other-request-text-container').hide();
+    $('#other').change(function () {
+        if ($(this).val() === 'Other') {
+            $('#other-request-text-container').show();
+        } else {
+            $('#other-request-text-container').hide();
+        }
+    });
+
+    $(document).ready(checkSelected());
+    $('#other').change(function () {
+        checkSelected();
+    });
+    function checkSelected() {
+        if ($('input[name=request-type]:checked').val() === 'Other') {
+            $('#other-request-text-container').show();
+        } else {
+            $('#other-request-text-container').hide();
+        }
+    }
+
+    $('button').click(checkAnswers);
+
+    function checkAnswers() {
+        var validInput = true;
+        validate.prototype.resetErrors();
+
+        var requestType = $('input[name=request-type]:checked').val();
+        var otherOption = $('textarea[name=other-request-text]:checked').val();
+
+        if (validate('input[name=request-type]').isChecked().error('.request-type').fail()) {
+            validInput = false;
+        } else if (requestType === 'Other') {
+            if (validate('input[name=other-request-type], textarea').isNotEmpty().error('.other-request-type').fail()) {
+                validInput = false;
+                $('.multiple-choice.inset').removeClass('inset');
+            }
+        }
+
+        if (validInput) {
+            member.questions.requestType = [];
+
+            //this part is what tells member to remember more than one value
+            $('input[name=request-type]:checked').each(function (num, el) {
+                var v = el.getAttribute('value');
+
+                if (v == 'Other') {
+                    if (other.length > 0) {
+                        member.questions.requestType.push(other);
+                    } else {
+                        member.questions.requestType.push('other');
+                        $('body').scrollTop(0);
+                        $('.error-summary').focus();
+                        validInput = false;
+                    }
+                } else {
+                    member.questions.requestType.push(v);
+                }
+            });
+            
+            if (changing == "true") {
+                go('check-your-answers');
+            } else {
+                go('project-info');
+            }
+        } else {
+            $('body').scrollTop(0);
+            $('.error-summary').focus();
+        }
+    }
+</script>
