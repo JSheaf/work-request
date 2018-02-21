@@ -9,7 +9,7 @@
             </ul>
         </div>
 
-        <h1 class="section-label">Interaction design work request</h1>
+        <h1 class="section-label">&nbsp;</h1>
         <h1 class="border-bottom-grey">What type of request do you have?</h1>
     </div>
 </div>
@@ -72,9 +72,7 @@
 
 <div class="row">
     <div class="col-12">
-        <p>Making a request takes around 5 minutes.</p>
-
-        <button class="btn-lrg btn-primary">Start now</button>
+        <button class="btn btn-primary">Start now</button>
     </div>
 </div>
 
@@ -92,9 +90,6 @@
         {{!-- $('input[id=other]').prop('checked', true); --}}
         {{!-- $('textarea[id=other-request-text]').val('These are the other things'); --}}
     });
-
-    // Check if user has been sent back from summary page
-    var changing = location.search.split('change=')[1];
 
     // count the characters and handle errors on the text area
     function countChar() {
@@ -180,6 +175,16 @@
         } else {
             $('body').scrollTop(0);
             $('.error-summary').focus();
+        }
+    }
+    // Populating fields when changing
+    var changing = location.search.split('change=')[1];
+
+    if (changing === 'true') {
+        $('.button-back').hide();
+
+        for (var i = 0; i < member.questions.requestType.length; ++i) {
+            $('input[value="' + member.questions.requestType[i] + '"]').prop('checked', true);
         }
     }
 </script>

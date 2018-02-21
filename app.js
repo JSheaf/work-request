@@ -17,25 +17,25 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get ('/', (req, res) => {
-    res.render('index', {layout: 'main'});
+    res.render('index');
 });
 app.get ('/contact', (req, res) => {
     res.render('contact');
 });
 app.get ('/request-type', (req, res) => {
-    res.render('request-type');
+    res.render('request-type', {title: 'Request type | ', header_application_title: 'Interaction design work request'});
 });
 app.get ('/project-info', (req, res) => {
-    res.render('project-info');
+    res.render('project-info', {title: 'Project information | ', header_application_title: 'Interaction design work request'});
 });
 app.get ('/your-details', (req, res) => {
-    res.render('your-details');
+    res.render('your-details', {title: 'Your details | ', header_application_title: 'Interaction design work request'});
 });
 app.get ('/check-your-answers', (req, res) => {
-    res.render('check-your-answers');
+    res.render('check-your-answers', {title: 'Check your answers | ', header_application_title: 'Interaction design work request'});
 });
 app.get ('/success', (req, res) => {
-    res.render('success');
+    res.render('success', {title: 'Success | ', header_application_title: 'Interaction design work request'});
 });
 
 app.post ('/success', (req, res) => {
@@ -187,7 +187,7 @@ app.post ('/success', (req, res) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"Interaction design work request" <stantondevicelab@gmail.com>', // sender address
-        to: 'wesmonde@hotmail.com', // list of receivers
+        to: 'wayne.esmonde@digital.dvla.gov.uk', // list of receivers
         subject: 'FAO David Hannify', // Subject line
         text: 'Hello world?', // plain text body
         html: output // html body

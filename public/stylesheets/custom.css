@@ -72,6 +72,6 @@ a.boxed-content:visited { color: #097567; }
 
 .boxed.row.col-3 { margin-left: 0; padding-left: 0; }
 
-.success-highlight { height: 250px; }
+.data-highlight .content { line-height: 66px; }
 
 .multiple-choice.inset .form-group { margin-bottom: 0; }

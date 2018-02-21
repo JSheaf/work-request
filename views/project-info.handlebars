@@ -31,7 +31,7 @@
             </ul>
         </div>
 
-        <h1 class="section-label">Interaction design work request</h1>
+        <h1 class="section-label">&nbsp;</h1>
         <h1 class="border-bottom-grey">Project information</h1>
     </div>
 </div>
@@ -266,17 +266,17 @@
 
         $('input[name=next-milestone][value=Showcase]').prop('checked', true);
         $('input[name=next-milestone-2][value=No]').prop('checked', true);
-        {{!-- $('#test-day').val('8');
+        $('#test-day').val('8');
         $('#test-month').val('2');
-        $('#test-year').val('2018'); --}}
+        $('#test-year').val('2018');
 
         $('#resource-duration').val('1 week');
 
         $('input[name=meeting-planned][value=No]').prop('checked', true);
-        {{!-- $('#meet-day').val('8');
+        $('#meet-day').val('8');
         $('#meet-month').val('2');
         $('#meet-year').val('2018');
-        $('#meeting-location').val('D15, Room 1'); --}}
+        $('#meeting-location').val('D15, Room 1');
 
         $('textarea[id=requirements]').val('Mission patch for alpha');
     });
@@ -288,6 +288,14 @@
             $('#next-milestone-2').show();
         } else {
             $('#next-milestone-2').hide();
+        }
+    });
+    $('#testing-date-empty').hide();
+    $('input[name=next-milestone-2]').change(function () {
+        if ($(this).val() === 'Yes') {
+            $('#testing-date-empty').show();
+        } else {
+            $('#testing-date-empty').hide();
         }
     });
     $('#meeting-planned-2').hide();
@@ -351,36 +359,37 @@
             } else if (nextMilestone === 'User insight') {
                 if (validate('input[name=next-milestone-2]').isChecked().error('.next-milestone-2').fail()) {
                     validInput = false;
-                }
-                if (validate('#test-day').isNotEmpty().validate('#test-month').isNotEmpty().validate('#test-year').isNotEmpty().error('.testing-date-empty').fail()) {
-                    validInput = false;
-                } else {
-                    checkDate();
-                }
-                function checkDate() {
-                    if (validate('#test-day').isNotEmpty().error('.test-day').fail()) {
+                } else if (nextMilestone2 === 'Yes') {
+                    if (validate('#test-day').isNotEmpty().validate('#test-month').isNotEmpty().validate('#test-year').isNotEmpty().error('.testing-date-empty').fail()) {
                         validInput = false;
                     } else {
-                        $('#test-day').addClass('no-error');
+                        checkDate();
                     }
-                    if (validate('#test-month').isNotEmpty().error('.test-month').fail()) {
-                        validInput = false;
-                    } else {
-                        $('#test-month').addClass('no-error');
-                    }
-                    if (validate('#test-year').isNotEmpty().error('.test-year').fail()) {
-                        validInput = false;
-                    } else {
-                        $('#test-year').addClass('no-error');
-                    }
-                    if (validInput == false) {
-                        {{!-- validate.prototype.resetErrors(); --}}
-                        $('.testing-date-incomplete').show();
-                        $('.testing-date-empty').hide();
-                        $('body').scrollTop(0);
-                        $('.error-summary').focus();
-                    } else {
-                        $('.testing-date-empty').hide();
+                    function checkDate() {
+                        if (validate('#test-day').isNotEmpty().error('.test-day').fail()) {
+                            validInput = false;
+                        } else {
+                            $('#test-day').addClass('no-error');
+                        }
+                        if (validate('#test-month').isNotEmpty().error('.test-month').fail()) {
+                            validInput = false;
+                        } else {
+                            $('#test-month').addClass('no-error');
+                        }
+                        if (validate('#test-year').isNotEmpty().error('.test-year').fail()) {
+                            validInput = false;
+                        } else {
+                            $('#test-year').addClass('no-error');
+                        }
+                        if (validInput == false) {
+                            {{!-- validate.prototype.resetErrors(); --}}
+                            $('.testing-date-incomplete').show();
+                            $('.testing-date-empty').hide();
+                            $('body').scrollTop(0);
+                            $('.error-summary').focus();
+                        } else {
+                            $('.testing-date-empty').hide();
+                        }
                     }
                 }
             }
