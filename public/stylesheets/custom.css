@@ -75,3 +75,17 @@ a.boxed-content:visited { color: #097567; }
 .data-highlight .content { line-height: 66px; }
 
 .multiple-choice.inset .form-group { margin-bottom: 0; }
+
+.multiple-choice.or {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0!important;
+}
+
+.multiple-choice.mission-patches,
+.multiple-choice.or,
+.multiple-choice.other-request {
+    border-bottom: none;
+}

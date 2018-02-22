@@ -29,29 +29,33 @@
                         <label for="digital-choice">Digital services hosted on GOV.UK</label>
                     </div>
                     <div class="multiple-choice">
-                        <input id="internal-service" name="request-type" type="checkbox" value="Internal DVLA service">
-                        <label for="internal-service">Internal DVLA service</label>
+                        <input id="accessibility-audit" name="request-type" type="checkbox" value="Help with accessibility auditing">
+                        <label for="accessibility-audit">Help with accessibility auditing</label>
                     </div>
                     <div class="multiple-choice">
                         <input id="improvement-choice" name="request-type" type="checkbox" value="Continuous improvement">
                         <label for="improvement-choice">Continuous improvement</label>
                     </div>
                     <div class="multiple-choice">
-                        <input id="assessment-preparation" name="request-type" type="checkbox" value="Assessment Preparation">
-                        <label for="assessment-preparation">Assessment Preparation</label>
+                        <input id="assessment-preparation" name="request-type" type="checkbox" value="Assessment preparation">
+                        <label for="assessment-preparation">Assessment preparation</label>
                     </div>
                     <div class="multiple-choice">
-                        <input id="accessibility-audit" name="request-type" type="checkbox" value="Help with accessibility auditing">
-                        <label for="accessibility-audit">Help with accessibility auditing</label>
+                        <input id="internal-service" name="request-type" type="checkbox" value="Internal DVLA service">
+                        <label for="internal-service">Internal DVLA service</label>
                     </div>
-                    <div class="multiple-choice">
+                    <div class="multiple-choice mission-patches">
                         <input id="mission-patches" name="request-type" type="checkbox" value="Mission patches">
-                        <label for="mission-patches">Mission Patches</label>
+                        <label for="mission-patches">Mission patches</label>
                     </div>
-                    <div class="multiple-choice">
-                        <input id="other" name="request-type" type="checkbox" value="Other">
-                        <label for="other">Other request</label>
+                    <div class="multiple-choice or">
+                        <p>or</p>
                     </div>
+                    <div class="multiple-choice other-request">
+                        <input id="other-request" name="other-request" type="checkbox" value="Other request">
+                        <label for="other-request">Other request</label>
+                    </div>
+                    
                     <div id="other-request-text-container" class="multiple-choice inset">
                         <div class="form-group">
                             <label for="other-request-text">
@@ -86,6 +90,11 @@
     }
 
     $('h1').click(function() {
+        $('input[id=digital-choice]').prop('checked', true);
+        $('input[id=internal-service]').prop('checked', true);
+        $('input[id=improvement-choice]').prop('checked', true);
+        $('input[id=assessment-preparation]').prop('checked', true);
+        $('input[id=accessibility-audit]').prop('checked', true);
         $('input[id=mission-patches]').prop('checked', true);
         {{!-- $('input[id=other]').prop('checked', true); --}}
         {{!-- $('textarea[id=other-request-text]').val('These are the other things'); --}}
@@ -108,25 +117,15 @@
     
     // Showing/hiding progressive disclosure fields
     $('#other-request-text-container').hide();
-    $('#other').change(function () {
-        if ($(this).val() === 'Other') {
-            $('#other-request-text-container').show();
-        } else {
-            $('#other-request-text-container').hide();
-        }
-    });
 
-    $(document).ready(checkSelected());
-    $('#other').change(function () {
-        checkSelected();
+    $('#other-request').click(function () {
+        $('input[name=request-type]').prop('checked', false);
+        $('#other-request-text-container').show();
     });
-    function checkSelected() {
-        if ($('input[name=request-type]:checked').val() === 'Other') {
-            $('#other-request-text-container').show();
-        } else {
-            $('#other-request-text-container').hide();
-        }
-    }
+    $('input[name=request-type]').click(function () {
+        $('#other-request').prop('checked', false);
+        $('#other-request-text-container').hide();
+    });
 
     $('button').click(checkAnswers);
 
@@ -157,7 +156,7 @@
                     if (other.length > 0) {
                         member.questions.requestType.push(other);
                     } else {
-                        member.questions.requestType.push('other');
+                        member.questions.requestType.push('Other');
                         $('body').scrollTop(0);
                         $('.error-summary').focus();
                         validInput = false;
