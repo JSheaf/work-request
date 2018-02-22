@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-8">
         <div class="data-highlight">
-            <div class="header">
+            <div class="header margin-top-5">
                 Work request submitted
             </div>
             <div class="content">
@@ -37,9 +37,9 @@
 
 
 <script type="text/javascript">
-    document.getElementById('demo').innerHTML =
-    Math.random().toString(36).substring(2, 7) + Math.random().toString(36).substring(2, 7);
 
+    document.getElementById('demo').innerHTML = member.reference;
+    
     $('button').click(next);
 
     function next() {

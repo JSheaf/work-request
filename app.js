@@ -97,6 +97,7 @@ app.post ('/success', (req, res) => {
         <h1>Interaction design work request</h1>
 
         <p class="lede">Request by ${req.body.name} from ${req.body.projectname}</p>
+        <p class="lede">Reference <strong>${req.body.reference}</strong></p>
 
         <ul class="list-sml">
             <li class="list-title-row">
@@ -185,10 +186,13 @@ app.post ('/success', (req, res) => {
     });
 
     // setup email data with unicode symbols
+    var toCc = req.body.email;
+    var ref = 'FAO David Hannify, ref: ' + req.body.reference;
     let mailOptions = {
         from: '"Interaction design work request" <stantondevicelab@gmail.com>', // sender address
         to: 'wayne.esmonde@digital.dvla.gov.uk', // list of receivers
-        subject: 'FAO David Hannify', // Subject line
+        cc:  toCc,
+        subject: ref, // Subject line
         text: 'Hello world?', // plain text body
         html: output // html body
     };

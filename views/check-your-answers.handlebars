@@ -129,6 +129,7 @@
         <input class="list-data" name="meetingdate" id="meetingdate">
         <input class="list-data" name="meetinglocation" id="meetinglocation">
         <input class="list-data" name="requirements" id="requirements">
+        <input class="list-data" name="reference" id="reference">
     </span>
 </form>
 
@@ -208,6 +209,11 @@
     $('input#meetingdate').val(member.questions.meetDay + ' ' + member.questions.meetMonth + ' ' + member.questions.meetYear);
     $('input#meetinglocation').val(member.questions.meetingLocation);
     $('input#requirements').val(member.questions.requirements);
+    
+
+    member.reference = Math.random().toString(36).substring(2, 7) + Math.random().toString(36).substring(2, 7);
+
+    $('input#reference').val(member.reference);
 
     function next() {
         go('success');
