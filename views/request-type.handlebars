@@ -119,8 +119,12 @@
     $('#other-request-text-container').hide();
 
     $('#other-request').click(function () {
-        $('input[name=request-type]').prop('checked', false);
-        $('#other-request-text-container').show();
+        if ($('input[name=other-request]').prop('checked')) {
+            $('#other-request-text-container').show();
+            $('input[name=request-type]').prop('checked', false);
+        } else {
+            $('#other-request-text-container').hide();
+        }
     });
     $('input[name=request-type]').click(function () {
         $('#other-request').prop('checked', false);
