@@ -21,7 +21,7 @@ h1 {
 }
 
 .form-group { margin-bottom: 20px; }
-.form-group.b { margin-bottom: 20px; }
+.form-group.b { margin-bottom: 48px!important; }
 
 .form-control { margin-bottom: 0; }
 
