@@ -273,10 +273,10 @@
         $('#resource-duration').val('1 week');
 
         $('input[name=meeting-planned][value=No]').prop('checked', true);
-        $('#meet-day').val('8');
-        $('#meet-month').val('2');
-        $('#meet-year').val('2018');
-        $('#meeting-location').val('D15, Room 1');
+        // $('#meet-day').val('8');
+        // $('#meet-month').val('2');
+        // $('#meet-year').val('2018');
+        // $('#meeting-location').val('D15, Room 1');
 
         $('textarea[id=requirements]').val('Mission patch for alpha');
     });
@@ -355,16 +355,22 @@
             validInput = false;
         } else {
             if ((nextMilestone !== 'User insight') && (nextMilestone)) {
-                validInput = true;
+
             } else if (nextMilestone === 'User insight') {
+
                 if (validate('input[name=next-milestone-2]').isChecked().error('.next-milestone-2').fail()) {
                     validInput = false;
-                } else if (nextMilestone2 === 'Yes') {
-                    if (validate('#test-day').isNotEmpty().validate('#test-month').isNotEmpty().validate('#test-year').isNotEmpty().error('.testing-date-empty').fail()) {
+
+                } else if (nextMilestone2 == 'Yes') {
+                    if (validate('input[id=test-day]').isNotEmpty()
+                        .validate('input[id=test-month]').isNotEmpty()
+                        .validate('input[id=test-year]').isNotEmpty()
+                        .error('.testing-date-empty').fail()) {
                         validInput = false;
                     } else {
                         checkDate();
                     }
+
                     function checkDate() {
                         if (validate('#test-day').isNotEmpty().error('.test-day').fail()) {
                             validInput = false;
@@ -382,7 +388,6 @@
                             $('#test-year').addClass('no-error');
                         }
                         if (validInput == false) {
-                            {{!-- validate.prototype.resetErrors(); --}}
                             $('.testing-date-incomplete').show();
                             $('.testing-date-empty').hide();
                             $('body').scrollTop(0);
@@ -401,9 +406,7 @@
         if (validate('input[name=meeting-planned]').isChecked().error('.meeting-planned').fail()) {
             validInput = false;
         } else {
-            if (meetingPlanned === 'No') {
-                validInput = true;
-            } else if (meetingPlanned === 'Yes') {
+            if (meetingPlanned === 'Yes') {
                 if (validate('#meeting-location').isNotEmpty().error('.meeting-location').fail()) {
                     validInput = false;
                 }
@@ -429,7 +432,6 @@
                         $('#meet-year').addClass('no-error');
                     }
                     if (validInput == false) {
-                        {{!-- validate.prototype.resetErrors(); --}}
                         $('.meeting-date-incomplete').show();
                         $('.meeting-date-empty').hide();
                         $('body').scrollTop(0);

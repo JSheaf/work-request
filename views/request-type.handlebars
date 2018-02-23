@@ -4,8 +4,8 @@
             <div class="error-title">There was a problem</div>
             <div class="error-description">Please amend the following details:</div>
             <ul class="error-list">
-                <li class="label-error request-type"><a href="#request-type">Select a request type</a></li>
-                <li class="label-error other-request-type hide"><a href="#other-request-type">Enter what you require from us</a></li>
+                <li class="label-error request-type hide"><a href="#request-type">Select a request type</a></li>
+                <li class="label-error other-request-text hide"><a href="#other-request-text">Enter what you require from us</a></li>
             </ul>
         </div>
 
@@ -138,16 +138,45 @@
         validate.prototype.resetErrors();
 
         var requestType = $('input[name=request-type]:checked').val();
-        var otherOption = $('textarea[name=other-request-text]:checked').val();
+        var otherRequest = $('input[name=other-request]:checked').val();
+        var otherRequestText = $('textarea[name=other-request-text]').val();
 
         if (validate('input[name=request-type]').isChecked().error('.request-type').fail()) {
-            validInput = false;
-        } else if (requestType === 'Other') {
-            if (validate('input[name=other-request-type], textarea').isNotEmpty().error('.other-request-type').fail()) {
+            console.log('First is empty checkOther');
+            checkOther();
+        }
+
+        function checkOther() {
+            if (validate('input[name=other-request]').isChecked().error('.request-type').fail()) {
+                console.log('second is empty');
                 validInput = false;
-                $('.multiple-choice.inset').removeClass('inset');
+            } else {
+                validate.prototype.resetErrors();
+                $('request-type').hide();
+                if (validate('textarea[name=other-request-text]').isNotEmpty().error('.other-request-text').fail()) {
+                    console.log('textarea is empty');
+                    $('.multiple-choice.inset').removeClass('inset');
+                    validInput = false;
+                }
             }
         }
+
+        
+        
+
+
+
+        /*
+        else {
+            if (otherRequestText) {
+                if (validate('input[name=other-request-type], textarea').isNotEmpty().error('.other-request-type').fail()) {
+                    validInput = false;
+                    $('.multiple-choice.inset').removeClass('inset');
+                } else {
+                }
+            }
+        }
+        */
 
         if (validInput) {
             member.questions.requestType = [];
@@ -156,18 +185,7 @@
             $('input[name=request-type]:checked').each(function (num, el) {
                 var v = el.getAttribute('value');
 
-                if (v == 'Other') {
-                    if (other.length > 0) {
-                        member.questions.requestType.push(other);
-                    } else {
-                        member.questions.requestType.push('Other');
-                        $('body').scrollTop(0);
-                        $('.error-summary').focus();
-                        validInput = false;
-                    }
-                } else {
-                    member.questions.requestType.push(v);
-                }
+                member.questions.requestType.push(v);
             });
             
             if (changing == "true") {
