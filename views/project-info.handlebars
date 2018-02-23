@@ -30,7 +30,6 @@
                 <li class="requirements hide"><a href="#requirements">Provide what you require from us</a></li>
             </ul>
         </div>
-        
         <a href="#" class="btn-back">Back</a>
         <h1 class="section-label">&nbsp;</h1>
         <h1 class="border-bottom-grey">Project information</h1>
@@ -483,7 +482,7 @@
     var changing = location.search.split('change=')[1];
 
     if (changing === 'true') {
-        $('.button-back').hide();
+        $('.btn-back').hide();
 
         $('#project-name').val(member.questions.projectName);
         $('input[name=project-phase][value="' + member.questions.projectPhase + '"]').prop('checked', true);

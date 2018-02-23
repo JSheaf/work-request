@@ -77,7 +77,7 @@
 
 <div class="row">
     <div class="col-12">
-        <button class="btn btn-primary">Start now</button>
+        <button class="btn btn-primary">Next</button>
     </div>
 </div>
 
@@ -203,7 +203,7 @@
     var changing = location.search.split('change=')[1];
 
     if (changing === 'true') {
-        $('.button-back').hide();
+        $('.btn-back').hide();
 
         for (var i = 0; i < member.questions.requestType.length; ++i) {
             $('input[value="' + member.questions.requestType[i] + '"]').prop('checked', true);
