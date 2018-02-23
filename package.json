@@ -4,8 +4,7 @@
   "description": "Sample app using nodemailer",
   "main": "app.js",
   "engines": {
-    "node": "6.11.4",
-    "npm": "5.6.0"
+    "node": "6.11.4"
   },
   "scripts": {
     "start": "node app.js"

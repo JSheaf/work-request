@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const path = require('path'); 
 const app = express();
+var port = (process.env.PORT || 3000);
 
 // View project setup
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -215,4 +216,6 @@ app.post ('/success', (req, res) => {
 
 })
 
-app.listen(3000, () => console.log('Server started...'));
+app.listen(port, () => {
+    console.log('Listening on port ' + port + ' url: http://localhost:' + port);
+});
