@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Sample app using nodemailer",
   "main": "app.js",
+  "engines": {
+    "node": ">=8.9.4 <10.0.0"
+  },
   "scripts": {
     "start": "node app.js"
   },
