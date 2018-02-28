@@ -191,7 +191,7 @@ app.post ('/success', (req, res) => {
     var ref = 'FAO David Hannify, ref: ' + req.body.reference;
     let mailOptions = {
         from: '"Interaction design work request" <stantondevicelab@gmail.com>', // sender address
-        to: 'stantondevicelab@gmail.com', // list of receivers
+        to: 'jsheaf90@gmail.com', // list of receivers
         cc:  toCc,
         subject: ref, // Subject line
         text: 'Your request has been sent to David Hannify', // plain text body
