@@ -97,7 +97,7 @@ app.post ('/success', (req, res) => {
 
         <h1>Interaction design work request</h1>
 
-        <p class="lede">Request by ${req.body.name} from: ${req.body.projectname}</p>
+        <p class="lede">Request by ${req.body.name} from ${req.body.projectname}</p>
         <p class="lede">Reference <strong>${req.body.reference}</strong></p>
 
         <ul class="list-sml">
