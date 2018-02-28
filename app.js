@@ -102,19 +102,19 @@ app.post ('/success', (req, res) => {
 
         <ul class="list-sml">
             <li class="list-title-row">
-                <span class="list-title">Request details:</span>
+                <span class="list-title">Request details</span>
                 <span class="list-change"></span>
             </li>
             <li class="list-row">
-                <span class="list-property">Request type:</span>
+                <span class="list-property">Request type</span>
                 <span class="list-data">${req.body.requesttype}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Project name:</span>
+                <span class="list-property">Project name</span>
                 <span class="list-data">${req.body.projectname}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Project phase:</span>
+                <span class="list-property">Project phase</span>
                 <span class="list-data">${req.body.projectphase}</span>
             </li>
             <li class="list-row">
@@ -122,31 +122,31 @@ app.post ('/success', (req, res) => {
                 <span class="list-data">${req.body.nextmilestone}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">User testing:</span>
+                <span class="list-property">User testing</span>
                 <span class="list-data">${req.body.nextmilestone2}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Testing date:</span>
+                <span class="list-property">Testing date</span>
                 <span class="list-data">${req.body.testingdate}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Resource duration:</span>
+                <span class="list-property">Resource duration</span>
                 <span class="list-data">${req.body.resourceduration}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Meeting planned:</span>
+                <span class="list-property">Meeting planned</span>
                 <span class="list-data">${req.body.meetingplanned}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Meeting date:</span>
+                <span class="list-property">Meeting date</span>
                 <span class="list-data">${req.body.meetingdate}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Meeting location:</span>
+                <span class="list-property">Meeting location</span>
                 <span class="list-data">${req.body.meetinglocation}</span>
             </li>
             <li class="list-row">
-                <span class="list-property">Requirements:</span>
+                <span class="list-property">Requirements</span>
                 <span class="list-data">${req.body.requirements}</span>
             </li>
         </ul>
