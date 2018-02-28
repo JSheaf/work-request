@@ -192,7 +192,7 @@ app.post ('/success', (req, res) => {
     let mailOptions = {
         from: '"Interaction design work request" <stantondevicelab@gmail.com>', // sender address
         to: 'stantondevicelab@gmail.com', // list of receivers
-        cc:  toCc,
+        // cc:  toCc,
         subject: ref, // Subject line
         text: 'Your request has been sent to David Hannify', // plain text body
         html: output // html body
