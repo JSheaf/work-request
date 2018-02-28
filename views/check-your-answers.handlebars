@@ -167,18 +167,24 @@
         $('#meeting-location-container').hide();
     }
 
-    var requestType = "";
-    for (var i = 0; i < member.questions.requestType.length; ++i) {
-        if (i === member.questions.requestType.length - 2) {
-            requestType += member.questions.requestType[i] + ' and ';
-        } else if (i === member.questions.requestType.length - 1) {
-            requestType += member.questions.requestType[i];
-        } else {
-            requestType += member.questions.requestType[i] + ", ";
+    if (member.questions.requestType) {
+        var requestType = "";
+        for (var i = 0; i < member.questions.requestType.length; ++i) {
+            if (i === member.questions.requestType.length - 2) {
+                requestType += member.questions.requestType[i] + ' and ';
+            } else if (i === member.questions.requestType.length - 1) {
+                requestType += member.questions.requestType[i];
+            } else {
+                requestType += member.questions.requestType[i] + ", ";
+            }
         }
+        $('#requesttype').html(requestType);
+    } else {
+        $('#requesttype').html(member.questions.otherRequestText);
     }
 
-    $('#requesttype').html(requestType);
+
+    
     $('#name').html(member.questions.name);
     $('#role').html(member.questions.role);
     $('#email').html(member.questions.email);

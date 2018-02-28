@@ -162,6 +162,10 @@
             }
         }
 
+
+
+
+
         
         
 
@@ -180,14 +184,18 @@
         */
 
         if (validInput) {
-            member.questions.requestType = [];
+            if (requestType) {
+                member.questions.requestType = [];
 
-            //this part is what tells member to remember more than one value
-            $('input[name=request-type]:checked').each(function (num, el) {
-                var v = el.getAttribute('value');
+                //this part is what tells member to remember more than one value
+                $('input[name=request-type]:checked').each(function (num, el) {
+                    var v = el.getAttribute('value');
 
-                member.questions.requestType.push(v);
-            });
+                    member.questions.requestType.push(v);
+                });
+            } else {
+                member.questions.otherRequestText = otherRequestText;
+            }
             
             if (changing == "true") {
                 go('check-your-answers');
@@ -205,8 +213,13 @@
     if (changing === 'true') {
         $('.btn-back').hide();
 
-        for (var i = 0; i < member.questions.requestType.length; ++i) {
-            $('input[value="' + member.questions.requestType[i] + '"]').prop('checked', true);
+        if (member.questions.requestType) {
+            for (var i = 0; i < member.questions.requestType.length; ++i) {
+                $('input[value="' + member.questions.requestType[i] + '"]').prop('checked', true);
+            }
+        } else {
+            $('input[name=other-request]').click();
+            $('textarea[name=other-request-text]').val(member.questions.otherRequestText);
         }
     }
 </script>
