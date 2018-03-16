@@ -26,24 +26,20 @@
                     </legend>
                     
                     <div class="multiple-choice">
-                        <input id="digital-choice" name="request-type" type="checkbox" value="Digital services hosted on GOV.UK">
-                        <label for="digital-choice">Digital services hosted on GOV.UK</label>
+                        <input id="prototypeç" name="request-type" type="checkbox" value="Prototyping">
+                        <label for="prototypeç">Prototyping</label>
                     </div>
                     <div class="multiple-choice">
-                        <input id="accessibility-audit" name="request-type" type="checkbox" value="Help with accessibility auditing">
-                        <label for="accessibility-audit">Help with accessibility auditing</label>
+                        <input id="accessibility-audit" name="request-type" type="checkbox" value="Asccessibility auditing">
+                        <label for="accessibility-audit">Accessibility auditing</label>
                     </div>
                     <div class="multiple-choice">
                         <input id="improvement-choice" name="request-type" type="checkbox" value="Continuous improvement">
                         <label for="improvement-choice">Continuous improvement</label>
                     </div>
                     <div class="multiple-choice">
-                        <input id="assessment-preparation" name="request-type" type="checkbox" value="Assessment preparation">
-                        <label for="assessment-preparation">Assessment preparation</label>
-                    </div>
-                    <div class="multiple-choice">
-                        <input id="internal-service" name="request-type" type="checkbox" value="Internal DVLA service">
-                        <label for="internal-service">Internal DVLA service</label>
+                        <input id="assessment-preparation" name="request-type" type="checkbox" value="GDS Assessment preparation">
+                        <label for="assessment-preparation">GDS Assessment preparation</label>
                     </div>
                     <div class="multiple-choice mission-patches">
                         <input id="mission-patches" name="request-type" type="checkbox" value="Mission patches">
@@ -91,8 +87,7 @@
     }
 
     $('h1').click(function() {
-        $('input[id=digital-choice]').prop('checked', true);
-        $('input[id=internal-service]').prop('checked', true);
+        $('input[id=prototypeç]').prop('checked', true);
         $('input[id=improvement-choice]').prop('checked', true);
         $('input[id=assessment-preparation]').prop('checked', true);
         $('input[id=accessibility-audit]').prop('checked', true);
