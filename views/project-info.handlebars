@@ -27,7 +27,7 @@
 
                 <li class="meeting-location hide"><a href="#meeting-location">Provide a meeting location</a></li>
 
-                <li class="requirements hide"><a href="#requirements">Provide what you require from us</a></li>
+                <li class="overview hide"><a href="#overview">Provide what you require from us</a></li>
             </ul>
         </div>
         <a href="#" onclick="window.history.back();" class="btn-back">Back</a>
@@ -236,14 +236,14 @@
 
 
         <div class="form-group b">
-            <label for="requirements">
-                <div class="label-title">Requirements</div>
+            <label for="overview">
+                <div class="label-title">Brief overview</div>
                 <div class="label-hint">Describe what you require from us</div>
-                <div class="label-error requirements hide">Provide what you require from us</div>
+                <div class="label-error overview hide">Provide what you require from us</div>
             </label>
-            <textarea class="form-control" name="requirements" id="requirements" onkeyup="countChar(this)" rows="5" maxlength="246" autocomplete="off"></textarea>
+            <textarea class="form-control" name="overview" id="overview" onkeyup="countChar(this)" rows="5" maxlength="246" autocomplete="off"></textarea>
 
-            <span class="requirementslength error-message">Your description is <span id="requirementslength"></span> characters too long</span>
+            <span class="overviewlength error-message">Your description is <span id="overviewlength"></span> characters too long</span>
             <span id="charcountdown" class="margin-top-0-5" style="display:block">(<span id="countdown">246</span> characters remaining)</span>
         </div>
 
@@ -286,7 +286,7 @@
         // $('#meet-year').val('2018');
         // $('#meeting-location').val('D15, Room 1');
 
-        $('textarea[id=requirements]').val('Mission patch for alpha');
+        $('textarea[id=overview]').val('Mission patch for alpha');
     });
 
     // Showing/hiding progressive disclosure fields
@@ -317,15 +317,15 @@
 
     // Count the characters and handle errors on the text area
     function countChar() {
-        var req = $('#requirements').val().length;
-        $('#requirementslength').html(req - 246);
+        var req = $('#overview').val().length;
+        $('#overviewlength').html(req - 246);
         $('#countdown').html(246 - req);
         if (req > 246) {
-            $('.requirementslength.error-message').show();
+            $('.overviewlength.error-message').show();
             $('#charcountdown').hide();
         }
         if (req < 247) {
-            $('.requirementslength.error-message').hide();
+            $('.overviewlength.error-message').hide();
             $('#charcountdown').show();
         }
     }
@@ -349,7 +349,7 @@
         var meetMonth = $('#meet-month').val();
         var meetYear = $('#meet-year').val();
         var meetingLocation = $('#meeting-location').val();
-        var requirements = $('#requirements').val();
+        var overview = $('#overview').val();
 
         // First check empty fields
         if (validate('#project-name').isNotEmpty().error('.project-name').fail()) {
@@ -451,7 +451,7 @@
             }
         }
 
-        if (validate('#requirements').isNotEmpty().error('.requirements').fail()) {
+        if (validate('#overview').isNotEmpty().error('.overview').fail()) {
             validInput = false;
         }
 
@@ -473,7 +473,7 @@
                 member.questions.meetingLocation = meetingLocation;
             } catch (err) {}
             member.questions.resourceDuration = resourceDuration;
-            member.questions.requirements = requirements;
+            member.questions.overview = overview;
 
             if (changing == "true") {
                 go('check-your-answers');
@@ -522,7 +522,7 @@
             $('input[name=meeting-planned][value="' + member.questions.meetingPlanned + '"]').prop('checked', true);
         }
 
-        $('#requirements').val(member.questions.requirements);
+        $('#overview').val(member.questions.overview);
     }
 </script>
 
