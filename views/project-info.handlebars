@@ -241,10 +241,10 @@
                 <div class="label-hint">Describe what you require from us</div>
                 <div class="label-error requirements hide">Provide what you require from us</div>
             </label>
-            <textarea class="form-control" name="requirements" id="requirements" onkeyup="countChar(this)" rows="5" maxlength="200" autocomplete="off"></textarea>
+            <textarea class="form-control" name="requirements" id="requirements" onkeyup="countChar(this)" rows="5" maxlength="246" autocomplete="off"></textarea>
 
             <span class="requirementslength error-message">Your description is <span id="requirementslength"></span> characters too long</span>
-            <span id="charcountdown" class="margin-top-0-5" style="display:block">(<span id="countdown">100</span> characters remaining)</span>
+            <span id="charcountdown" class="margin-top-0-5" style="display:block">(<span id="countdown">246</span> characters remaining)</span>
         </div>
 
 
@@ -318,13 +318,13 @@
     // Count the characters and handle errors on the text area
     function countChar() {
         var req = $('#requirements').val().length;
-        $('#requirementslength').html(req - 100);
-        $('#countdown').html(100 - req);
-        if (req > 100) {
+        $('#requirementslength').html(req - 246);
+        $('#countdown').html(246 - req);
+        if (req > 246) {
             $('.requirementslength.error-message').show();
             $('#charcountdown').hide();
         }
-        if (req < 101) {
+        if (req < 247) {
             $('.requirementslength.error-message').hide();
             $('#charcountdown').show();
         }
