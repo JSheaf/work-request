@@ -57,6 +57,10 @@
                     What phase is the project in?
                 </legend>
                 <div class="label-error project-phase hide">Provide the phase of your project</div>
+                 <div class="multiple-choice">
+                    <input id="inception" type="radio" name="project-phase" value="Inception">
+                    <label for="inception">Inception</label>
+                </div>
                 <div class="multiple-choice">
                     <input id="discovery" type="radio" name="project-phase" value="Discovery">
                     <label for="discovery">Discovery</label>
@@ -90,6 +94,10 @@
                     What is the next milestone?
                 </legend>
                 <div class="label-error next-milestone hide">Provide the next milestone</div>
+                <div class="multiple-choice">
+                    <input id="update-current-service" type="radio" name="next-milestone" value="Update a current service / iteration">
+                    <label for="update-current-service">Update a current service / iteration</label>
+                </div>
                 <div class="multiple-choice">
                     <input id="putting-team-together" type="radio" name="next-milestone" value="Putting a team together">
                     <label for="putting-team-together">Putting a team together</label>
@@ -137,13 +145,13 @@
                         </label>
                         <div class="row">
                             <div class="col-1 col-day">
-                                <input type="text" id="test-day" name="day" name="testing-date" class="form-control" />
+                                <input type="text" id="test-day" name="day" name="testing-date" class="form-control autotab" target="test-month" length="2" />
                             </div>
                             <div class="col-1 col-month">
-                                <input type="text" id="test-month" name="month" name="testing-date" class="form-control" />
+                                <input type="text" id="test-month" name="month" name="testing-date" class="form-control autotab" target="test-year" length="2" />
                             </div>
                             <div class="col-1 col-year">
-                                <input type="text" id="test-year" name="year" name="testing-date" class="form-control" />
+                                <input type="text" id="test-year" name="year" name="testing-date" class="form-control autotab" target="resource-duration" length="4" />
                             </div>
                         </div>
                     </fieldset>
@@ -200,13 +208,13 @@
                         </label>
                         <div class="row">
                             <div class="col-1 col-day">
-                                <input type="text" id="meet-day" name="day" name="meeting-date" class="form-control" />
+                                <input type="text" id="meet-day" name="day" name="meeting-date" class="form-control autotab" target="meet-month" length="2"  />
                             </div>
                             <div class="col-1 col-month">
-                                <input type="text" id="meet-month" name="month" name="meeting-date" class="form-control" />
+                                <input type="text" id="meet-month" name="month" name="meeting-date" class="form-control autotab" target="meet-year" length="2"  />
                             </div>
                             <div class="col-1 col-year">
-                                <input type="text" id="meet-year" name="year" name="meeting-date" class="form-control" />
+                                <input type="text" id="meet-year" name="year" name="meeting-date" class="form-control autotab" target="meeting-location" length="4" />
                             </div>
                         </div>
                     </fieldset>

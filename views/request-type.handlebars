@@ -121,6 +121,7 @@
 
     $('#other-request').click(function () {
         if ($('input[name=other-request]').prop('checked')) {
+            delete member.questions.requestType;
             $('#other-request-text-container').show();
             $('input[name=request-type]').prop('checked', false);
         } else {
@@ -128,6 +129,7 @@
         }
     });
     $('input[name=request-type]').click(function () {
+        delete member.questions.otherRequestText;
         $('#other-request').prop('checked', false);
         $('#other-request-text-container').hide();
     });

@@ -44,7 +44,7 @@ function ValidationRules(selector, validator) {
     }
   
     this.isPhone = function() {
-        this.isRegEx(/^(\+)*[0-9]{11,12}$/);
+        this.isRegEx(/^(\+)*[0-9]{5}$/);
         return this;
     }
   

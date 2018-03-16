@@ -88,10 +88,10 @@
         if (validate('#role').isNotEmpty().error('.role').fail()) {
             validInput = false;
         }
-        if (validate('#email').isNotEmpty().error('.email').fail()) {
+        if (validate('#email').isNotEmpty().isEmail().error('.email').fail()) {
             validInput = false;
         }
-        if (validate('#phone').isNotEmpty().error('.phone').fail()) {
+        if (validate('#phone').isNotEmpty().isPhone().error('.phone').fail()) {
             validInput = false;
         }
 
