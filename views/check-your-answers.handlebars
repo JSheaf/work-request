@@ -72,8 +72,8 @@
                     </div>
                 </span>
                 <div class="list-row">
-                    <div class="list-property">Requirements</div>
-                    <div class="list-data" name="requirements" id="requirements"></div>
+                    <div class="list-property">Brief overview</div>
+                    <div class="list-data" name="overview" id="overview"></div>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
         <input class="list-data" name="meetingplanned" id="meetingplanned">
         <input class="list-data" name="meetingdate" id="meetingdate">
         <input class="list-data" name="meetinglocation" id="meetinglocation">
-        <input class="list-data" name="requirements" id="requirements">
+        <input class="list-data" name="overview" id="overview">
         <input class="list-data" name="reference" id="reference">
     </span>
 </form>
@@ -198,7 +198,7 @@
     $('#meetingplanned').html(member.questions.meetingPlanned);
     $('#meetingdate').html(member.questions.meetDay + ' ' + member.questions.meetMonth + ' ' + member.questions.meetYear);
     $('#meetinglocation').html(member.questions.meetingLocation);
-    $('#requirements').html(member.questions.requirements);
+    $('#overview').html(member.questions.overview);
 
     $('input#requesttype').val(requestType);
     $('input#name').val(member.questions.name);
@@ -214,7 +214,7 @@
     $('input#meetingplanned').val(member.questions.meetingPlanned);
     $('input#meetingdate').val(member.questions.meetDay + ' ' + member.questions.meetMonth + ' ' + member.questions.meetYear);
     $('input#meetinglocation').val(member.questions.meetingLocation);
-    $('input#requirements').val(member.questions.requirements);
+    $('input#overview').val(member.questions.overview);
     
 
     member.reference = Math.random().toString(36).substring(2, 7) + Math.random().toString(36).substring(2, 7);
