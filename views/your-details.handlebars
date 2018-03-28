@@ -25,7 +25,7 @@
                 <label for="name">
                     <div class="label-title">Full name</div>
                     <div class="label-error name hide">Provide your full name</div>
-                    <input class="form-control" id="name" type="text" name="name" value="">
+                    <input class="form-control" id="name" type="text" name="name" value="" autofocus="autofocus">
                 </label>
             </div>
             <div class="form-group">
@@ -39,7 +39,7 @@
                 <label for="email">
                     <div class="label-title">E-mail address</div>
                     <div class="label-error email hide">Provide your e-mail address</div>
-                    <input class="form-control" id="email" type="text" name="email" value="@gsi.gov.uk">
+                    <input class="form-control form-control-2-3" id="email" type="text" name="email">  @dvla.gsi.gov.uk
                 </label>
             </div>
             <div class="form-group">
@@ -67,7 +67,7 @@
     $('h1').click(function() {
         $('#name').val('Lou Power');
         $('#role').val('Business Analyst');
-        $('#email').val('lou.power@dvla.gsi.gov.uk');
+        $('#email').val('lou.power');
         $('#phone').val('88221');
     });
 
@@ -88,7 +88,7 @@
         if (validate('#role').isNotEmpty().error('.role').fail()) {
             validInput = false;
         }
-        if (validate('#email').isNotEmpty().isEmail().error('.email').fail()) {
+        if (validate('#email').isNotEmpty().error('.email').fail()) {
             validInput = false;
         }
         if (validate('#phone').isNotEmpty().isPhone().error('.phone').fail()) {
@@ -98,7 +98,7 @@
         if (validInput) {
             member.questions.name = name;
             member.questions.role = role;
-            member.questions.email = email;
+            member.questions.email = email + "@dvla.gsi.gov.uk";
             member.questions.phone = phone;
 
             go('check-your-answers');
