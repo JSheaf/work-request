@@ -33,11 +33,11 @@
                     <div class="list-property">Project phase</div>
                     <div class="list-data" name="projectphase" id="projectphase"></div>
                 </div>
-                <div class="list-row">
+                {{!-- <div class="list-row">
                     <div class="list-property">Next milestone</div>
                     <div class="list-data" name="nextmilestone" id="nextmilestone"></div>
-                </div>
-                <span id="next-milestone-2-container">
+                </div> --}}
+                {{!-- <span id="next-milestone-2-container">
                     <div class="list-row">
                         <div class="list-property">Has user testing been booked</div>
                         <div class="list-data" name="nextmilestone2" id="nextmilestone2"></div>
@@ -52,7 +52,7 @@
                 <div class="list-row">
                     <div class="list-property">Resource duration</div>
                     <div class="list-data" name="resourceduration" id="resourceduration"></div>
-                </div>
+                </div> --}}
                 <span id="meeting-planned-container">
                     <div class="list-row">
                         <div class="list-property">Has a meeting been planned</div>
@@ -121,10 +121,10 @@
         <input class="list-data" name="phone" id="phone">
         <input class="list-data" name="projectname" id="projectname">
         <input class="list-data" name="projectphase" id="projectphase">
-        <input class="list-data" name="nextmilestone" id="nextmilestone">
+        {{!-- <input class="list-data" name="nextmilestone" id="nextmilestone">
         <input class="list-data" name="nextmilestone2" id="nextmilestone2">
         <input class="list-data" name="testingdate" id="testingdate">
-        <input class="list-data" name="resourceduration" id="resourceduration">
+        <input class="list-data" name="resourceduration" id="resourceduration"> --}}
         <input class="list-data" name="meetingplanned" id="meetingplanned">
         <input class="list-data" name="meetingdate" id="meetingdate">
         <input class="list-data" name="meetinglocation" id="meetinglocation">
@@ -141,7 +141,7 @@
 <script>
     $('button').click(next);
 
-    if (member.questions.nextMilestone === 'User insight') {
+    /*if (member.questions.nextMilestone === 'User insight') {
         $('#next-milestone-2-container').show();
     } else {
         $('#next-milestone-2-container').hide();
@@ -150,7 +150,7 @@
         $('#testing-date-container').show();
     } else {
         $('#testing-date-container').hide();
-    }
+    } */
     if (member.questions.meetingPlanned === 'No') {
         $('#meeting-planned-container').show();
     } else {
@@ -191,10 +191,10 @@
     $('#phone').html(member.questions.phone);
     $('#projectname').html(member.questions.projectName);
     $('#projectphase').html(member.questions.projectPhase);
-    $('#nextmilestone').html(member.questions.nextMilestone);
-    $('#nextmilestone2').html(member.questions.nextMilestone2);
-    $('#testingdate').html(member.questions.testDay + ' ' + member.questions.testMonth + ' ' + member.questions.testYear);
-    $('#resourceduration').html(member.questions.resourceDuration);
+  //$('#nextmilestone').html(member.questions.nextMilestone);
+  //$('#nextmilestone2').html(member.questions.nextMilestone2);
+  //$('#testingdate').html(member.questions.testDay + ' ' + member.questions.testMonth + ' ' + member.questions.testYear);
+  //$('#resourceduration').html(member.questions.resourceDuration);
     $('#meetingplanned').html(member.questions.meetingPlanned);
     $('#meetingdate').html(member.questions.meetDay + ' ' + member.questions.meetMonth + ' ' + member.questions.meetYear);
     $('#meetinglocation').html(member.questions.meetingLocation);
@@ -207,10 +207,10 @@
     $('input#phone').val(member.questions.phone);
     $('input#projectname').val(member.questions.projectName);
     $('input#projectphase').val(member.questions.projectPhase);
-    $('input#nextmilestone').val(member.questions.nextMilestone);
-    $('input#nextmilestone2').val(member.questions.nextMilestone2);
-    $('input#testingdate').val(member.questions.testDay + ' ' + member.questions.testMonth + ' ' + member.questions.testYear);
-    $('input#resourceduration').val(member.questions.resourceDuration);
+  //$('input#nextmilestone').val(member.questions.nextMilestone);
+  //$('input#nextmilestone2').val(member.questions.nextMilestone2);
+  //$('input#testingdate').val(member.questions.testDay + ' ' + member.questions.testMonth + ' ' + member.questions.testYear);
+  //$('input#resourceduration').val(member.questions.resourceDuration);
     $('input#meetingplanned').val(member.questions.meetingPlanned);
     $('input#meetingdate').val(member.questions.meetDay + ' ' + member.questions.meetMonth + ' ' + member.questions.meetYear);
     $('input#meetinglocation').val(member.questions.meetingLocation);
