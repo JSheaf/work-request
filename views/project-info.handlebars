@@ -178,7 +178,7 @@
 
 
         <form>
-            <div class="form-group inline" id="deadline">
+            <div id="deadline" class="form-group inline">
                 <fieldset>
                     <legend>
                         Does your project have a deadline?
@@ -195,33 +195,29 @@
                     </div>
                 </fieldset>
             </div>
-        </form>
+            <div id="deadline-2" class="form-group">
+                <fieldset class="inset">
+                    <label for="deadline-date">
+                        <div class="label-title">What is the deadline date?</div>
+                        <div class="label-hint">For example 6 2 2018</div>
+                        <div class="label-error deadline-date-empty hide">Enter a valid date</div>
+                        <div class="label-error deadline-date-incomplete hide">Date is incomplete</div>
+                    </label>
 
-        <span id="deadline-2" class="inset">
-            <form>
-                <div class="form-group">
-                    <fieldset>
-                        <label for="deadline-date">
-                            <div class="label-title">What is the deadline date?</div>
-                            <div class="label-hint">For example 6 2 2018</div>
-                            <div class="label-error deadline-date-empty hide">Enter a valid date</div>
-                            <div class="label-error deadline-date-incomplete hide">Date is incomplete</div>
-                        </label>
-                        <div class="row">
-                            <div class="col-1 col-day">
-                                <input type="text" id="deadline-day" name="day" name="deadline-date" class="form-control autotab" target="deadline-month" length="2"  />
-                            </div>
-                            <div class="col-1 col-month">
-                                <input type="text" id="deadline-month" name="month" name="deadline-date" class="form-control autotab" target="deadline-year" length="2"  />
-                            </div>
-                            <div class="col-1 col-year">
-                                <input type="text" id="deadline-year" name="year" name="deadline-date" class="form-control autotab" target="overview" length="4" />
-                            </div>
+                    <div class="row">
+                        <div class="col-1 col-day">
+                            <input type="text" id="deadline-day" name="deadline-date" class="form-control" />
                         </div>
-                    </fieldset>
-                </div>
-            </form>
-        </span>
+                        <div class="col-1 col-month">
+                            <input type="text" id="deadline-month" name="deadline-date" class="form-control" />
+                        </div>
+                        <div class="col-1 col-year">
+                            <input type="text" id="deadline-year" name="deadline-date" class="form-control" />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
                 {{!-- <div class="form-group">
                     <label for="meeting-location">
                         <div class="label-title">What is the meeting location</div>
@@ -311,13 +307,22 @@
     });
     */
     $('#deadline-2').hide();
-    $('input[name=deadline]').change(function () {
+    
+    if ($('input[name=deadline]:checked').val() === 'Yes') {
+        $('#deadline-2').show();
+    }
+
+    $("input[name='deadline']").change(function() {
+        $('#deadline').removeClass('error');
+        $('.deadline').hide();
+        $('.error-summary').hide();
+
         if ($(this).val() === 'Yes') {
             $('#deadline-2').show();
         } else {
             $('#deadline-2').hide();
         }
-    }); 
+    });
 
     // Count the characters and handle errors on the text area
     function countChar() {
@@ -418,30 +423,30 @@
 
 */
 
+        // First check empty fields
         if (validate('input[name=deadline]').isChecked().error('.deadline').fail()) {
             validInput = false;
         } else {
-            if (deadlinePlanned === 'Yes') {
-        //        if (validate('#meeting-location').isNotEmpty().error('.meeting-location').fail()) {
-        //            validInput = false;
-        //        }
+            if (meetingPlanned === 'Yes') {
                 if (validate('#deadline-day').isNotEmpty().validate('#deadline-month').isNotEmpty().validate('#deadline-year').isNotEmpty().error('.deadline-date-empty').fail()) {
+                    $('#deadline-2').addClass('error thick');
+                    $('.inset').removeClass('inset');
                     validInput = false;
                 } else {
                     checkDate();
                 }
                 function checkDate() {
-                    if (validate('#deadline-day').isNotEmpty().isGreaterThan(0).isLessThan(32).error('.deadline-day').fail()) {
+                    if (validate('#deadline-day').isNotEmpty().error('.deadline-day').fail()) {
                         validInput = false;
                     } else {
                         $('#deadline-day').addClass('no-error');
                     }
-                    if (validate('#deadline-month').isNotEmpty().isGreaterThan(0).isLessThan(13).error('.deadline-month').fail()) {
+                    if (validate('#deadline-month').isNotEmpty().error('.deadline-month').fail()) {
                         validInput = false;
                     } else {
                         $('#deadline-month').addClass('no-error');
                     }
-                    if (validate('#deadline-year').isNotEmpty().isGreaterThan(2017).error('.deadline-year').fail()) {
+                    if (validate('#deadline-year').isNotEmpty().error('.deadline-year').fail()) {
                         validInput = false;
                     } else {
                         $('#deadline-year').addClass('no-error');
