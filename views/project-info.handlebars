@@ -20,7 +20,7 @@
 
                 <li class="deadline hide"><a href="#deadline">Select a deadline option</a></li>
                 <li class="deadline-date-empty hide"><a href="#deadline-2">Enter a valid deadline date</a></li>
-                <li class="deadline-date-incomplete hide"><a href="#deadline-2">Deadline date is incomplete</a></li>
+                {{!-- <li class="deadline-date-incomplete hide"><a href="#deadline-2">Deadline date is incomplete</a></li> --}}
                 <li class="deadline-day hide"><a href="#deadline-day">Enter a valid day</a></li>
                 <li class="deadline-month hide"><a href="#deadline-month">Enter a valid month</a></li>
                 <li class="deadline-year hide"><a href="#deadline-year">Enter a valid year</a></li>
@@ -206,13 +206,13 @@
 
                     <div class="row">
                         <div class="col-1 col-day">
-                            <input type="text" id="deadline-day" name="deadline-date" class="form-control" />
+                            <input type="text" id="deadline-day" name="deadline-date" class="form-control autotab" target="deadline-month" length="2" />
                         </div>
                         <div class="col-1 col-month">
-                            <input type="text" id="deadline-month" name="deadline-date" class="form-control" />
+                            <input type="text" id="deadline-month" name="deadline-date" class="form-control autotab" target="deadline-year" length="2" />
                         </div>
                         <div class="col-1 col-year">
-                            <input type="text" id="deadline-year" name="deadline-date" class="form-control" />
+                            <input type="text" id="deadline-year" name="deadline-date" class="form-control autotab" target="overview" length="4" />
                         </div>
                     </div>
                 </fieldset>
@@ -427,7 +427,7 @@
         if (validate('input[name=deadline]').isChecked().error('.deadline').fail()) {
             validInput = false;
         } else {
-            if (meetingPlanned === 'Yes') {
+            if (deadlinePlanned === 'Yes') {
                 if (validate('#deadline-day').isNotEmpty().validate('#deadline-month').isNotEmpty().validate('#deadline-year').isNotEmpty().error('.deadline-date-empty').fail()) {
                     $('#deadline-2').addClass('error thick');
                     $('.inset').removeClass('inset');
@@ -436,23 +436,24 @@
                     checkDate();
                 }
                 function checkDate() {
-                    if (validate('#deadline-day').isNotEmpty().error('.deadline-day').fail()) {
+                    if (validate('#deadline-day').isNotEmpty().isGreaterThan(0).isLessThan(32).error('.deadline-day').fail()) {
                         validInput = false;
                     } else {
                         $('#deadline-day').addClass('no-error');
                     }
-                    if (validate('#deadline-month').isNotEmpty().error('.deadline-month').fail()) {
+                    if (validate('#deadline-month').isNotEmpty().isGreaterThan(0).isLessThan(13).error('.deadline-month').fail()) {
                         validInput = false;
                     } else {
                         $('#deadline-month').addClass('no-error');
                     }
-                    if (validate('#deadline-year').isNotEmpty().error('.deadline-year').fail()) {
+                    if (validate('#deadline-year').isNotEmpty().isGreaterThan(2017).error('.deadline-year').fail()) {
                         validInput = false;
                     } else {
                         $('#deadline-year').addClass('no-error');
                     }
                     if (validInput == false) {
-                        $('.deadline-date-incomplete').show();
+                        // $('.deadline-date-incomplete').show();
+                        $('.deadline-2').show();
                         $('.deadline-date-empty').hide();
                         $('body').scrollTop(0);
                         $('.error-summary').focus();
